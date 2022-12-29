@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+$logo-font: 'Monoton', cursive;
+$text-font: 'Rubik', sans-serif;
+
+.logo-text {
+  font-family: $logo-font;
+}
+
+p {
+  font-family: $text-font;
+}
+
+.body-text {
+  font-family: $text-font;
+}
