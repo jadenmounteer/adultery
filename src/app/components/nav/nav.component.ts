@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
+import { IconService } from 'src/app/services/icon.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,9 +7,7 @@ import { faDumbbell } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
-  faDumbbell = faDumbbell;
-
-  constructor() {}
+  constructor(public icon: IconService) {}
 
   ngOnInit(): void {}
 }
