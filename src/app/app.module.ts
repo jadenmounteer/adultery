@@ -7,9 +7,11 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { NavComponent } from './components/nav/nav.component';
+import { PageWrapperComponent } from './components/page-wrapper/page-wrapper.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavComponent, PageWrapperComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
