@@ -1,11 +1,12 @@
 @import 'src/app/scss-partials/main.scss';
 
-.page-content {
+.tubular-page-content {
   border: 2px solid black;
-  height: calc(100vh - $page-header-height);
+  height: calc(100vh - ($page-header-and-footer-height * 2));
 }
 
-.page-header {
-  border: 2px solid red;
-  height: $page-header-height;
+.tubular-page-header,
+.tubular-page-footer {
+  height: $page-header-and-footer-height;
+  overflow: scroll;
 }

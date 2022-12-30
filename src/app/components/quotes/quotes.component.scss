@@ -1,6 +1,19 @@
+@import 'src/app/scss-partials/main.scss';
+
 .loading-spinner-container {
   background-color: gray;
 }
 
 .quotes-container {
+  display: flex;
+  align-items: center;
+  height: $page-header-and-footer-height;
+  flex-wrap: wrap;
+  padding-left: $spacing-small;
+  padding-right: $spacing-small;
+  justify-content: center;
+}
+
+.header-text {
+  font-size: 1.5em;
 }

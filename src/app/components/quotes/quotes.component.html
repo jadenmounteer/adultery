@@ -4,8 +4,11 @@
   [@fadeIn]
   [@quoteState]="quoteState"
 >
-  <h1 class="body-text">"{{ quoteToDisplay?.quoteToDisplay }}"</h1>
-  <h2 class="body-text">-{{ quoteToDisplay?.whoSaidIt }}</h2>
+  <span class="body-text header-text"
+    >"{{ quoteToDisplay?.quoteToDisplay }}" &#160;-&#160;{{
+      quoteToDisplay?.whoSaidIt
+    }}
+  </span>
 </div>
 
 <div class="loading-spinner-container" *ngIf="!quotesLoaded">
