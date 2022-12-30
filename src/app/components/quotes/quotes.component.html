@@ -1,5 +1,8 @@
-<h1 class="body-text">"{{ quoteToDisplay }}"</h1>
-<h2 class="body-text">-{{ whoSaidIt }}</h2>
-<div class="loading-spinner-container">
+<div *ngIf="quotesLoaded">
+  <h1 class="body-text">"{{ quoteToDisplay }}"</h1>
+  <h2 class="body-text">-{{ whoSaidIt }}</h2>
+</div>
+
+<div class="loading-spinner-container" *ngIf="!quotesLoaded">
   <app-loading-spinner></app-loading-spinner>
 </div>

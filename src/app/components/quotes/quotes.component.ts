@@ -11,6 +11,7 @@ export class QuotesComponent implements OnInit {
   public quoteToDisplay: string = '';
   public whoSaidIt: string = '';
   public defaultQuotes: Array<Quote> = [];
+  public quotesLoaded: boolean = false;
 
   constructor(private quotesService: QuotesService) {}
 
@@ -26,6 +27,7 @@ export class QuotesComponent implements OnInit {
     // TODO cycle through the quotes
     this.quoteToDisplay = this.defaultQuotes[0].quoteToDisplay;
     this.whoSaidIt = this.defaultQuotes[0].whoSaidIt;
+    this.quotesLoaded = true;
   }
 
   private shuffleQuotes(listOfQuotes: Array<Quote>): Array<Quote> {
