@@ -4,3 +4,11 @@
   font-family: $logo-font;
   color: blue;
 }
+
+// These are temporary styles just to show off the loading spinner
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - ($page-header-and-footer-height * 2));
+}
