@@ -9,6 +9,7 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { QuotesService } from './services/quotes.service';
     NavComponent,
     PageWrapperComponent,
     QuotesComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
