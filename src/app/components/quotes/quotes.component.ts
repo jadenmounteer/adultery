@@ -12,13 +12,13 @@ import { Quote } from 'src/app/types/quote';
       state(
         'normal',
         style({
-          'background-color': 'red',
+          color: 'red',
         })
       ),
       state(
         'changing',
         style({
-          'background-color': 'blue',
+          color: 'blue',
         })
       ),
     ]),
