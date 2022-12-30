@@ -8,8 +8,7 @@ import { Quote } from 'src/app/types/quote';
   styleUrls: ['./quotes.component.scss'],
 })
 export class QuotesComponent implements OnInit {
-  public quoteToDisplay: string = '';
-  public whoSaidIt: string = '';
+  public quoteToDisplay: Quote | undefined;
   public defaultQuotes: Array<Quote> = [];
   public quotesLoaded: boolean = false;
 
@@ -20,14 +19,34 @@ export class QuotesComponent implements OnInit {
       this.defaultQuotes = responseData;
       this.defaultQuotes = this.shuffleQuotes(this.defaultQuotes);
       this.configureQuoteToDisplay();
+
+      this.quotesLoaded = true;
     });
   }
 
   private configureQuoteToDisplay() {
-    // TODO cycle through the quotes
-    this.quoteToDisplay = this.defaultQuotes[0].quoteToDisplay;
-    this.whoSaidIt = this.defaultQuotes[0].whoSaidIt;
-    this.quotesLoaded = true;
+    this.quoteToDisplay = this.defaultQuotes[0];
+
+    setInterval(() => {
+      this.quoteToDisplay = this.cycleThroughQuotes();
+    }, 5000);
+  }
+
+  private cycleThroughQuotes(): Quote | undefined {
+    let newQuote: Quote | undefined;
+    if (this.quoteToDisplay) {
+      let currentQuote: number = this.defaultQuotes.indexOf(
+        this.quoteToDisplay
+      );
+
+      if (currentQuote <= this.defaultQuotes.length) {
+        let newIndex = (currentQuote += 1);
+        newQuote = this.defaultQuotes[newIndex];
+      } else {
+        newQuote = this.defaultQuotes[0];
+      }
+    }
+    return newQuote;
   }
 
   private shuffleQuotes(listOfQuotes: Array<Quote>): Array<Quote> {
