@@ -91,7 +91,7 @@ export class QuotesComponent implements OnInit {
         this.quoteToDisplay = this.cycleThroughQuotes();
         this.fadeIn();
       }, 490);
-    }, 1000);
+    }, 15000);
   }
 
   private cycleThroughQuotes(): Quote | undefined {
