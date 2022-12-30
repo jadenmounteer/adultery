@@ -1,4 +1,8 @@
-<div *ngIf="quotesLoaded">
+<div
+  *ngIf="quotesLoaded"
+  class="quotes-container"
+  [@animationState]="quoteState"
+>
   <h1 class="body-text">"{{ quoteToDisplay?.quoteToDisplay }}"</h1>
   <h2 class="body-text">-{{ quoteToDisplay?.whoSaidIt }}</h2>
 </div>

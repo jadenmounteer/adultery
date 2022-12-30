@@ -1,3 +1,4 @@
+import { state, style, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 import { Quote } from 'src/app/types/quote';
@@ -6,11 +7,28 @@ import { Quote } from 'src/app/types/quote';
   selector: 'app-quotes',
   templateUrl: './quotes.component.html',
   styleUrls: ['./quotes.component.scss'],
+  animations: [
+    trigger('quoteState', [
+      state(
+        'normal',
+        style({
+          'background-color': 'red',
+        })
+      ),
+      state(
+        'changing',
+        style({
+          'background-color': 'blue',
+        })
+      ),
+    ]),
+  ],
 })
 export class QuotesComponent implements OnInit {
   public quoteToDisplay: Quote | undefined;
   public defaultQuotes: Array<Quote> = [];
   public quotesLoaded: boolean = false;
+  public quoteState = 'normal';
 
   constructor(private quotesService: QuotesService) {}
 

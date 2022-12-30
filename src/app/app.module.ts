@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [QuotesService],
   bootstrap: [AppComponent],
