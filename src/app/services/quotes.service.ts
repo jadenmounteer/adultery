@@ -1,20 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-interface quote {
-  quoteToDisplay: string;
-  whoSaidIt: string;
-}
+import { Quote } from '../types/quote';
 
 @Injectable()
 export class QuotesService {
   constructor(private http: HttpClient) {}
 
   public fetchDefaultQuotes() {
-    return this.http
-      .get<quote[]>('https://tubular-cccbd-default-rtdb.firebaseio.com/0.json')
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+    return this.http.get<Quote[]>(
+      'https://tubular-cccbd-default-rtdb.firebaseio.com/0.json'
+    );
   }
 }
