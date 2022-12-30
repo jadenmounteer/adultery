@@ -1,4 +1,6 @@
+@import 'src/app/scss-partials/main.scss';
+
 nav {
   display: flex;
-  gap: 10px;
+  gap: $spacing-small;
 }

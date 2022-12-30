@@ -1,0 +1,11 @@
+@import 'src/app/scss-partials/main.scss';
+
+.page-content {
+  border: 2px solid black;
+  height: calc(100vh - $page-header-height);
+}
+
+.page-header {
+  border: 2px solid red;
+  height: $page-header-height;
+}

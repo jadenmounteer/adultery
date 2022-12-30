@@ -1,3 +1,10 @@
-<app-quotes></app-quotes>
-<app-nav></app-nav>
-<ng-content></ng-content>
+<div class="page-header">
+  <ng-content select="[pageHeader]"> </ng-content>
+</div>
+<div class="page-content">
+  <ng-content></ng-content>
+</div>
+
+<div class="page-footer">
+  <ng-content select="[pageFooter]"> </ng-content>
+</div>
