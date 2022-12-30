@@ -91,7 +91,7 @@ export class QuotesComponent implements OnInit {
         this.quoteToDisplay = this.cycleThroughQuotes();
         this.fadeIn();
       }, 490);
-    }, 15000);
+    }, 1000);
   }
 
   private cycleThroughQuotes(): Quote | undefined {
@@ -104,9 +104,12 @@ export class QuotesComponent implements OnInit {
       if (currentQuote <= this.defaultQuotes.length) {
         let newIndex = (currentQuote += 1);
         newQuote = this.defaultQuotes[newIndex];
-      } else {
-        newQuote = this.defaultQuotes[0];
+        if (newQuote === undefined) {
+          newQuote = this.defaultQuotes[0];
+        }
       }
+    } else {
+      newQuote = this.defaultQuotes[0];
     }
     return newQuote;
   }
@@ -119,12 +122,6 @@ export class QuotesComponent implements OnInit {
       listOfQuotes[j] = temp;
     }
     return listOfQuotes;
-  }
-
-  private onAnimate() {
-    this.quoteState == 'normal'
-      ? (this.quoteState = 'invisible')
-      : (this.quoteState = 'normal');
   }
 
   private fadeOut() {
