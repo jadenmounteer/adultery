@@ -17,17 +17,24 @@ export class QuotesComponent implements OnInit {
   ngOnInit(): void {
     this.quotesService.fetchDefaultQuotes().subscribe((responseData) => {
       this.defaultQuotes = responseData;
+      this.defaultQuotes = this.shuffleQuotes(this.defaultQuotes);
       this.configureQuoteToDisplay();
     });
   }
 
   private configureQuoteToDisplay() {
-    let randomQuote: Quote = this.getRandomQuote(this.defaultQuotes);
-    this.quoteToDisplay = randomQuote.quoteToDisplay;
-    this.whoSaidIt = randomQuote.whoSaidIt;
+    // TODO cycle through the quotes
+    this.quoteToDisplay = this.defaultQuotes[0].quoteToDisplay;
+    this.whoSaidIt = this.defaultQuotes[0].whoSaidIt;
   }
 
-  private getRandomQuote(listOfQuotes: Array<Quote>): Quote {
-    return listOfQuotes[Math.floor(Math.random() * listOfQuotes.length)];
+  private shuffleQuotes(listOfQuotes: Array<Quote>): Array<Quote> {
+    for (var i = listOfQuotes.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = listOfQuotes[i];
+      listOfQuotes[i] = listOfQuotes[j];
+      listOfQuotes[j] = temp;
+    }
+    return listOfQuotes;
   }
 }
