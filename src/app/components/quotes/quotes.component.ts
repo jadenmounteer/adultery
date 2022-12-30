@@ -8,8 +8,8 @@ import { Quote } from 'src/app/types/quote';
   styleUrls: ['./quotes.component.scss'],
 })
 export class QuotesComponent implements OnInit {
-  public quoteToDisplay: string = 'Do or do not, there is no try';
-  public whoSaidIt: string = 'Yoda';
+  public quoteToDisplay: string = '';
+  public whoSaidIt: string = '';
   public defaultQuotes: Array<Quote> = [];
 
   constructor(private quotesService: QuotesService) {}
@@ -23,6 +23,8 @@ export class QuotesComponent implements OnInit {
 
   private configureQuoteToDisplay() {
     let randomQuote: Quote = this.getRandomQuote(this.defaultQuotes);
+    this.quoteToDisplay = randomQuote.quoteToDisplay;
+    this.whoSaidIt = randomQuote.whoSaidIt;
   }
 
   private getRandomQuote(listOfQuotes: Array<Quote>): Quote {

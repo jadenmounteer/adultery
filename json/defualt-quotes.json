@@ -3,5 +3,10 @@
     "quoteToDisplay": "Do or do not, there is no try",
     "whoSaidIt": "Yoda",
     "defaultQuote": true
+  },
+  {
+    "quoteToDisplay": "Success usually comes to those who are too busy to be looking for it.",
+    "whoSaidIt": "Henry David Thoreau",
+    "defaultQuote": true
   }
 ]
