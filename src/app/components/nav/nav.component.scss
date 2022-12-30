@@ -2,5 +2,8 @@
 
 nav {
   display: flex;
-  gap: $spacing-small;
+  gap: $spacing-medium;
+  justify-content: center;
+  align-items: center;
+  height: $page-header-and-footer-height;
 }
