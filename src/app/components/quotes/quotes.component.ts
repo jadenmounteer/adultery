@@ -19,7 +19,21 @@ import { Quote } from 'src/app/types/quote';
       state('invisible', style({})),
       state('normal', style({})),
       transition(
-        '* <=> *',
+        'normal => invisible',
+        animate(
+          500,
+          keyframes([
+            style({
+              opacity: 1,
+            }),
+            style({
+              opacity: 0,
+            }),
+          ])
+        )
+      ),
+      transition(
+        'invisible => normal',
         animate(
           500,
           keyframes([
@@ -71,9 +85,13 @@ export class QuotesComponent implements OnInit {
     this.quoteToDisplay = this.defaultQuotes[0];
 
     setInterval(() => {
-      this.onAnimate();
-      this.quoteToDisplay = this.cycleThroughQuotes();
-    }, 5000);
+      this.fadeOut();
+      setTimeout(() => {
+        // this.onAnimate();
+        this.quoteToDisplay = this.cycleThroughQuotes();
+        this.fadeIn();
+      }, 490);
+    }, 15000);
   }
 
   private cycleThroughQuotes(): Quote | undefined {
@@ -107,5 +125,13 @@ export class QuotesComponent implements OnInit {
     this.quoteState == 'normal'
       ? (this.quoteState = 'invisible')
       : (this.quoteState = 'normal');
+  }
+
+  private fadeOut() {
+    this.quoteState = 'invisible';
+  }
+
+  private fadeIn() {
+    this.quoteState = 'normal';
   }
 }
