@@ -8,6 +8,7 @@ import { PageWrapperComponent } from './components/page-wrapper/page-wrapper.com
 import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { QuotesService } from './services/quotes.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [QuotesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
