@@ -3,6 +3,7 @@
 .tubular-page-content {
   border: 2px solid black;
   height: calc(100vh - ($page-header-and-footer-height * 2));
+  overflow: scroll;
 }
 
 .tubular-page-header,

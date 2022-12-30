@@ -1,10 +1,7 @@
 @import 'src/app/scss-partials/main.scss';
 
+.quotes-container,
 .loading-spinner-container {
-  background-color: gray;
-}
-
-.quotes-container {
   display: flex;
   align-items: center;
   height: $page-header-and-footer-height;
