@@ -7,6 +7,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { PageWrapperComponent } from './components/page-wrapper/page-wrapper.component';
 import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PageWrapperComponent,
     QuotesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FontAwesomeModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
