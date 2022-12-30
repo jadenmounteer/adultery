@@ -4,6 +4,7 @@ import {
   transition,
   trigger,
   animate,
+  keyframes,
 } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
@@ -15,20 +16,36 @@ import { Quote } from 'src/app/types/quote';
   styleUrls: ['./quotes.component.scss'],
   animations: [
     trigger('quoteState', [
+      state('invisible', style({})),
+      state('normal', style({})),
+      transition(
+        '* <=> *',
+        animate(
+          500,
+          keyframes([
+            style({
+              opacity: 0,
+            }),
+            style({
+              opacity: 1,
+            }),
+          ])
+        )
+      ),
+    ]),
+    trigger('fadeIn', [
       state(
-        'changing',
+        'in',
         style({
-          color: 'red',
+          opacity: 1,
         })
       ),
-      state(
-        'normal',
+      transition('void => *', [
         style({
-          color: 'blue',
-        })
-      ),
-      transition('changing => normal', animate(300)),
-      transition('normal => changing', animate(300)),
+          opacity: 0,
+        }),
+        animate(500),
+      ]),
     ]),
   ],
 })
@@ -54,12 +71,12 @@ export class QuotesComponent implements OnInit {
     this.quoteToDisplay = this.defaultQuotes[0];
 
     setInterval(() => {
+      this.onAnimate();
       this.quoteToDisplay = this.cycleThroughQuotes();
     }, 5000);
   }
 
   private cycleThroughQuotes(): Quote | undefined {
-    this.onAnimate();
     let newQuote: Quote | undefined;
     if (this.quoteToDisplay) {
       let currentQuote: number = this.defaultQuotes.indexOf(
@@ -88,7 +105,7 @@ export class QuotesComponent implements OnInit {
 
   private onAnimate() {
     this.quoteState == 'normal'
-      ? (this.quoteState = 'changing')
+      ? (this.quoteState = 'invisible')
       : (this.quoteState = 'normal');
   }
 }
