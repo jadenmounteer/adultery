@@ -1,4 +1,10 @@
-import { state, style, trigger } from '@angular/animations';
+import {
+  state,
+  style,
+  transition,
+  trigger,
+  animate,
+} from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 import { Quote } from 'src/app/types/quote';
@@ -10,17 +16,19 @@ import { Quote } from 'src/app/types/quote';
   animations: [
     trigger('quoteState', [
       state(
-        'normal',
+        'changing',
         style({
           color: 'red',
         })
       ),
       state(
-        'changing',
+        'normal',
         style({
           color: 'blue',
         })
       ),
+      transition('changing => normal', animate(300)),
+      transition('normal => changing', animate(300)),
     ]),
   ],
 })
@@ -51,6 +59,7 @@ export class QuotesComponent implements OnInit {
   }
 
   private cycleThroughQuotes(): Quote | undefined {
+    this.onAnimate();
     let newQuote: Quote | undefined;
     if (this.quoteToDisplay) {
       let currentQuote: number = this.defaultQuotes.indexOf(
@@ -75,5 +84,11 @@ export class QuotesComponent implements OnInit {
       listOfQuotes[j] = temp;
     }
     return listOfQuotes;
+  }
+
+  private onAnimate() {
+    this.quoteState == 'normal'
+      ? (this.quoteState = 'changing')
+      : (this.quoteState = 'normal');
   }
 }
