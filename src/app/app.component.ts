@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tubular';
+  // items: Observable<any[]>;
 
-  constructor(private http: HttpClient) {
-    // const testData = {
-    //   title: 'test',
-    //   content: 'hello world',
-    // };
-    // this.onCreatePost(testData);
-  }
-
-  onCreatePost(postData: { title: string; content: string }) {
-    this.http
-      .post(
-        'https://tubular-cccbd-default-rtdb.firebaseio.com/posts.json',
-        postData
-      )
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+  constructor(firestore: AngularFirestore) {
+    // This is a test, it will grab an empty list of all the default quotes collection
+    // this.items = firestore.collection('defaultQuotes').valueChanges();
   }
 }
