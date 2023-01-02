@@ -10,5 +10,5 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - ($page-header-and-footer-height * 2));
+  height: $page-content-height;
 }
