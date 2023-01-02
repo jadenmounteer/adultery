@@ -9,6 +9,8 @@ import {
 import { Component, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 import { Quote } from 'src/app/types/quote';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-quotes',
@@ -68,17 +70,24 @@ export class QuotesComponent implements OnInit {
   public defaultQuotes: Array<Quote> = [];
   public quotesLoaded: boolean = false;
   public quoteState = 'normal';
+  public quotesObservable: Observable<Quote[]> | undefined;
 
   constructor(private quotesService: QuotesService) {}
 
   ngOnInit(): void {
-    this.quotesService.fetchDefaultQuotes().subscribe((responseData) => {
-      this.defaultQuotes = responseData;
-      this.defaultQuotes = this.shuffleQuotes(this.defaultQuotes);
-      this.configureQuoteToDisplay();
+    this.quotesObservable = this.quotesService.fetchDefaultQuotes().pipe(
+      map((docArray: any[]) => {
+        return docArray.map((doc) => {
+          return {
+            id: doc.payload.doc.id,
+            ...doc.payload.doc.data(),
+          };
+        });
+      })
+    );
 
-      this.quotesLoaded = true;
-    });
+    // this.configureQuoteToDisplay();
+    // this.quotesLoaded = true;
   }
 
   private configureQuoteToDisplay() {

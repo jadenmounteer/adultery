@@ -14,3 +14,8 @@
 <div class="loading-spinner-container" *ngIf="!quotesLoaded">
   <app-loading-spinner></app-loading-spinner>
 </div>
+
+<!-- I can use this syntax to display the list of workouts from an observable asyncronously -->
+<!-- <div *ngFor="let quote of quotesObservable | async">
+  <p>{{ quote.quoteToDisplay }}</p>
+</div> -->
