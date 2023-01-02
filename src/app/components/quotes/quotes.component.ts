@@ -9,7 +9,7 @@ import {
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 import { Quote } from 'src/app/types/quote';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-quotes',
@@ -76,7 +76,7 @@ export class QuotesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.quoteSubscription = this.quotesService.quotesChanged.subscribe(
       (quotes) => {
-        this.defaultQuotes = quotes;
+        this.defaultQuotes = this.shuffleQuotes(quotes);
         this.configureQuoteToDisplay();
         this.quotesLoaded = true;
       }

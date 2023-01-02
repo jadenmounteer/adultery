@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Quote } from '../types/quote';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Injectable()
@@ -10,7 +9,7 @@ export class QuotesService {
   public defaultQuotes: Array<Quote> = [];
   public quotesChanged = new Subject<Quote[]>();
 
-  constructor(private http: HttpClient, private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore) {}
 
   public fetchDefaultQuotes() {
     this.firestore
@@ -18,6 +17,7 @@ export class QuotesService {
       .snapshotChanges()
       .pipe(
         map((docArray: any[]) => {
+          // Here we map the data coming from the db to be the Quote type.
           return docArray.map((doc) => {
             return {
               id: doc.payload.doc.id,
