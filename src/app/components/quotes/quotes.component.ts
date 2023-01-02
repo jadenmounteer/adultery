@@ -6,11 +6,10 @@ import {
   animate,
   keyframes,
 } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { QuotesService } from 'src/app/services/quotes.service';
 import { Quote } from 'src/app/types/quote';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-quotes',
@@ -65,29 +64,28 @@ import { Observable } from 'rxjs';
     ]),
   ],
 })
-export class QuotesComponent implements OnInit {
+export class QuotesComponent implements OnInit, OnDestroy {
   public quoteToDisplay: Quote | undefined;
   public defaultQuotes: Array<Quote> = [];
   public quotesLoaded: boolean = false;
   public quoteState = 'normal';
-  public quotesObservable: Observable<Quote[]> | undefined;
+  private quoteSubscription!: Subscription;
 
   constructor(private quotesService: QuotesService) {}
 
   ngOnInit(): void {
-    this.quotesObservable = this.quotesService.fetchDefaultQuotes().pipe(
-      map((docArray: any[]) => {
-        return docArray.map((doc) => {
-          return {
-            id: doc.payload.doc.id,
-            ...doc.payload.doc.data(),
-          };
-        });
-      })
+    this.quoteSubscription = this.quotesService.quotesChanged.subscribe(
+      (quotes) => {
+        this.defaultQuotes = quotes;
+        this.configureQuoteToDisplay();
+        this.quotesLoaded = true;
+      }
     );
+    this.quotesService.fetchDefaultQuotes();
+  }
 
-    // this.configureQuoteToDisplay();
-    // this.quotesLoaded = true;
+  ngOnDestroy(): void {
+    this.quoteSubscription.unsubscribe();
   }
 
   private configureQuoteToDisplay() {
