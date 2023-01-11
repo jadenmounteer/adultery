@@ -1,7 +1,6 @@
 @import 'src/app/scss-partials/main.scss';
 
 .tubular-page-content {
-  height: $page-content-height;
   overflow: scroll;
 }
 
@@ -17,4 +16,11 @@
 
 .tubular-page-footer {
   border-top: 1px solid black;
+  margin-top: auto;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

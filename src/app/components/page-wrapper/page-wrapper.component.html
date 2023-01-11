@@ -1,10 +1,12 @@
-<div class="tubular-page-header">
-  <ng-content select="[pageHeader]"> </ng-content>
-</div>
-<div class="tubular-page-content">
-  <ng-content></ng-content>
-</div>
+<div class="page-container">
+  <div class="tubular-page-header">
+    <ng-content select="[pageHeader]"> </ng-content>
+  </div>
+  <div class="tubular-page-content">
+    <ng-content></ng-content>
+  </div>
 
-<div class="tubular-page-footer">
-  <ng-content select="[pageFooter]"> </ng-content>
+  <div class="tubular-page-footer">
+    <ng-content select="[pageFooter]"> </ng-content>
+  </div>
 </div>
