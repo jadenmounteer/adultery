@@ -2,6 +2,8 @@
 
 .adultery-page-content {
   overflow: scroll;
+  padding-top: $page-header-and-footer-height;
+  display: flex;
 }
 
 .adultery-page-header,
@@ -26,5 +28,5 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: scroll;
+  overflow: hidden;
 }
