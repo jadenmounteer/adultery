@@ -1,20 +1,20 @@
 @import 'src/app/scss-partials/main.scss';
 
-.tubular-page-content {
+.adultery-page-content {
   overflow: scroll;
 }
 
-.tubular-page-header,
-.tubular-page-footer {
+.adultery-page-header,
+.adultery-page-footer {
   height: $page-header-and-footer-height;
   overflow: scroll;
 }
 
-.tubular-page-header {
+.adultery-page-header {
   border-bottom: 1px solid black;
 }
 
-.tubular-page-footer {
+.adultery-page-footer {
   border-top: 1px solid black;
   margin-top: auto;
 }

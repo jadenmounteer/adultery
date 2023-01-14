@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'tubular';
+  title = 'adultery';
   // items: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {
