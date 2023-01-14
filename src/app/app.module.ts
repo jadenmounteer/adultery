@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     PageWrapperComponent,
     QuotesComponent,
     LoadingSpinnerComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
