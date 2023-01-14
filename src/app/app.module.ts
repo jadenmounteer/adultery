@@ -15,7 +15,14 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    component: HomePageComponent,
+  },
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +35,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule.forRoot(appRoutes),
     FontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
