@@ -1,4 +1,4 @@
-cd /Users/jadenmounteer/git/tubular
+cd /Users/jadenmounteer/git/adultery
 npm i angular-cli-ghpages --save-dev
 ng build --base-href "https://jadenmounteer.github.io/adultery/"
-npx angular-cli-ghpages --dir=dist/tubular
+npx angular-cli-ghpages --dir=dist/adultery
