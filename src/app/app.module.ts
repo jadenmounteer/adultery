@@ -16,6 +16,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimationComponent } from './components/animation/animation.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+// TODO This is a function necessary for lottie (is there a better place for this?)
+export function playerFactory(): any {
+  return import('lottie-web');
+}
 
 const appRoutes: Routes = [
   {
@@ -31,6 +39,7 @@ const appRoutes: Routes = [
     QuotesComponent,
     LoadingSpinnerComponent,
     HomePageComponent,
+    AnimationComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +50,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [QuotesService],
   bootstrap: [AppComponent],
