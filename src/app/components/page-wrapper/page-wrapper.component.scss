@@ -21,7 +21,6 @@
 }
 
 .adultery-page-footer {
-  border-top: 1px solid black;
   margin-top: auto;
 }
 
@@ -30,4 +29,8 @@
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+}
+
+.logged-in-footer {
+  border-top: 1px solid black;
 }
