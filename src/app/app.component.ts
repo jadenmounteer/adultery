@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'adultery';
   public user: User = {
     name: 'Jaden',
-    isLoggedIn: true,
+    isLoggedIn: false,
   };
   // items: Observable<any[]>;
 
