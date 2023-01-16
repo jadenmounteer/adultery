@@ -1,8 +1,10 @@
-<div *ngIf="user.isLoggedIn">
-  <p>Welcome {{ user.name }}</p>
-  <app-quotes></app-quotes>
-</div>
+<div class="page-header-wrapper">
+  <div *ngIf="user.isLoggedIn">
+    <p>Welcome {{ user.name }}</p>
+    <app-quotes></app-quotes>
+  </div>
 
-<div *ngIf="!user.isLoggedIn">
-  <h1>Adultery</h1>
+  <div *ngIf="!user.isLoggedIn">
+    <h1>Adultery</h1>
+  </div>
 </div>
