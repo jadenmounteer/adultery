@@ -7,7 +7,7 @@ import { AnimationOptions } from 'ngx-lottie';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  public animationOptions: AnimationOptions = {
+  public homePageAnimation: AnimationOptions = {
     path: '/assets/lottie/hero-on-its-way.json',
   };
   constructor() {}
