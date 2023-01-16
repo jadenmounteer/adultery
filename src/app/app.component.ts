@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { User } from './types/user';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,10 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class AppComponent {
   title = 'adultery';
+  public user: User = {
+    name: 'Jaden',
+    isLoggedIn: false,
+  };
   // items: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {
