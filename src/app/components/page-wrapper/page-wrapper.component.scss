@@ -4,6 +4,7 @@
   overflow: scroll;
   margin-top: $page-header-and-footer-height;
   display: flex;
+
   justify-content: center;
 }
 
@@ -18,6 +19,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 .adultery-page-footer {
