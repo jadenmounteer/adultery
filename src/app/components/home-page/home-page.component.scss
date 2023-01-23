@@ -6,3 +6,9 @@
 app-animation {
   max-width: 500px;
 }
+
+.login-or-sign-up-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
