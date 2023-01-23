@@ -22,6 +22,7 @@ import player from 'lottie-web';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderNavComponent } from './components/header-nav/header-nav.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -57,6 +58,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     LottieModule.forRoot({ player: playerFactory }),
+    NgbModule,
   ],
   providers: [QuotesService],
   bootstrap: [AppComponent],
