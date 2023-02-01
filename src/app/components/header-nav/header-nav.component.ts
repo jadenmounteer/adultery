@@ -11,6 +11,9 @@ import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 export class HeaderNavComponent implements OnInit {
   @Input()
   user!: User;
+
+  protected isMenuCollapsed: boolean = true;
+
   constructor() {}
 
   ngOnInit(): void {}
