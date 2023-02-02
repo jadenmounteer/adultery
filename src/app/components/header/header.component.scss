@@ -1,4 +1,26 @@
+@import 'src/app/scss-partials/main.scss';
+
 .page-header-wrapper {
   padding-left: 10px;
   padding-right: 10px;
+  margin-bottom: 10;
+  border-bottom: 1px solid black;
+}
+
+.header-content {
+  min-height: $page-header-and-footer-height;
+  background-color: blue;
+}
+
+.right-header-content {
+  justify-content: flex-end;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  align-items: center;
+  min-height: 100%;
+  background-color: red;
 }

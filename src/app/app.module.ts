@@ -21,7 +21,6 @@ import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { HeaderNavComponent } from './components/header-nav/header-nav.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
@@ -46,7 +45,6 @@ const appRoutes: Routes = [
     AnimationComponent,
     HeaderComponent,
     FooterComponent,
-    HeaderNavComponent,
   ],
   imports: [
     BrowserModule,

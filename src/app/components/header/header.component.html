@@ -5,6 +5,49 @@
   </div>
 
   <div *ngIf="!user.isLoggedIn" class="header-content">
-    <app-header-nav [user]="user"></app-header-nav>
+    <nav class="navbar navbar-expand-lg navbar-light mb-3">
+      <div class="left-header-content me-auto">
+        <h1>Adultery</h1>
+      </div>
+
+      <div class="container-fluid right-header-content">
+        <button
+          class="navbar-toggler"
+          type="button"
+          (click)="isMenuCollapsed = !isMenuCollapsed"
+        >
+          &#9776;
+        </button>
+
+        <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                [routerLink]="'.'"
+                (click)="isMenuCollapsed = true"
+                >Features</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="'.'"
+                (click)="isMenuCollapsed = true"
+                >Examples</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                [routerLink]="'.'"
+                (click)="isMenuCollapsed = true"
+                >About</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 </div>
