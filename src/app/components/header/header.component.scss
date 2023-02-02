@@ -1,11 +1,16 @@
+@import 'src/app/scss-partials/main.scss';
+
 .page-header-wrapper {
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .header-content {
   display: flex;
   flex-direction: row;
   flex-basis: auto;
+  align-items: center;
+  height: $page-header-and-footer-height;
 }
 
 .nav-container {
