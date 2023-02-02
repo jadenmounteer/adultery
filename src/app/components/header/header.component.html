@@ -5,11 +5,6 @@
   </div>
 
   <div *ngIf="!user.isLoggedIn" class="header-content">
-    <div class="left-header-content me-auto">
-      <h1>Adultery</h1>
-    </div>
-    <div class="nav-container">
-      <app-header-nav [user]="user"></app-header-nav>
-    </div>
+    <app-header-nav [user]="user"></app-header-nav>
   </div>
 </div>
