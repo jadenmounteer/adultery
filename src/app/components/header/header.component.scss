@@ -1,13 +1,5 @@
 @import 'src/app/scss-partials/main.scss';
 
-.header-content {
-  min-height: $page-header-and-footer-height;
-  background-color: blue;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-bottom: 1px solid black;
-}
-
 .right-header-content {
   justify-content: flex-end;
 }
@@ -17,6 +9,9 @@
   flex-direction: row;
   flex-basis: auto;
   align-items: center;
-  min-height: 100%;
-  background-color: red;
+  min-height: $page-header-and-footer-height;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid black;
+  background-color: white;
 }
