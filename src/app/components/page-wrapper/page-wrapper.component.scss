@@ -8,7 +8,10 @@
   justify-content: center;
 }
 
-.adultery-page-header,
+.adultery-page-header {
+  min-height: $page-header-and-footer-height;
+}
+
 .adultery-page-footer {
   height: $page-header-and-footer-height;
 }
