@@ -1,15 +1,11 @@
 @import 'src/app/scss-partials/main.scss';
 
-.page-header-wrapper {
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 10;
-  border-bottom: 1px solid black;
-}
-
 .header-content {
   min-height: $page-header-and-footer-height;
   background-color: blue;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid black;
 }
 
 .right-header-content {
