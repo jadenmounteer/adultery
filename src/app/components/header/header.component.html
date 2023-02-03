@@ -17,7 +17,28 @@
 
     <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="!user.isLoggedIn">
+          <a class="nav-link" [routerLink]="'.'">Login </a>
+        </li>
+
+        <li class="nav-item active" *ngIf="!user.isLoggedIn">
+          <a class="nav-link" [routerLink]="'.'">Sign Up </a>
+        </li>
+
+        <li class="nav-item active" *ngIf="user.isLoggedIn">
+          <span ngbDropdown>
+            <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle
+              >Welcome {{ user.name }}
+            </a>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button ngbDropdownItem (click)="isMenuCollapsed = true">
+                Sign Out
+              </button>
+            </div>
+          </span>
+        </li>
+
+        <li class="nav-item active" *ngIf="user.isLoggedIn">
           <span ngbDropdown>
             <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle>Fitness</a>
             <div class="dropdown-menu" ngbDropdownMenu>
@@ -33,7 +54,7 @@
             </div>
           </span>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" *ngIf="user.isLoggedIn">
           <span ngbDropdown>
             <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle>Finance</a>
             <div class="dropdown-menu" ngbDropdownMenu>
