@@ -1,6 +1,6 @@
 // Global variables
 $page-header-and-footer-height: 90px;
-$page-content-height: calc(100vh - ($page-header-and-footer-height * 2));
+// $page-content-height: calc(100vh - ($page-header-and-footer-height * 2)); I can use this variable on the native app if I want the sticky footer
 
 // Spacings
 $spacing-small: 10px;
