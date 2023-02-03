@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/types/user';
+import { IconService } from 'src/app/services/icon.service';
 
 // This component is inspired by the Responsive navbar here: https://ng-bootstrap.github.io/#/components/collapse/examples
 
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
   protected isMenuCollapsed: boolean = true;
 
-  constructor() {}
+  constructor(public icon: IconService) {}
 
   ngOnInit(): void {}
 }

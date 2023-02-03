@@ -11,3 +11,15 @@
   border-bottom: 1px solid black;
   background-color: white;
 }
+
+.nav-link-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+fa-icon {
+  @include for-tablet-portrait-up {
+    display: none;
+  }
+}
