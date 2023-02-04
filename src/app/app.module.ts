@@ -24,6 +24,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './components/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -52,6 +53,7 @@ export function playerFactory(): any {
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireAuthModule,
     LottieModule.forRoot({ player: playerFactory }),
     NgbModule,
     NgbDropdownModule,
