@@ -9,7 +9,7 @@ export class AuthService {
       email: authData.email,
       userId: String(Math.round(Math.random() * 10000)),
       name: 'Jaden',
-      isLoggedIn: false,
+      isLoggedIn: true,
     };
   }
 
@@ -18,7 +18,20 @@ export class AuthService {
       email: authData.email,
       userId: String(Math.round(Math.random() * 10000)),
       name: 'Jaden',
+      isLoggedIn: true,
+    };
+  }
+
+  logout() {
+    this.user = {
+      email: '',
+      userId: '',
+      name: '',
       isLoggedIn: false,
     };
+  }
+
+  getUser() {
+    return { ...this.user };
   }
 }
