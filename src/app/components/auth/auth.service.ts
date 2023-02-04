@@ -35,4 +35,8 @@ export class AuthService {
     // The spread operator here returns a different object with the same properties as the private user object.
     return { ...this.user };
   }
+
+  isAuth() {
+    return this.user.userId != '';
+  }
 }
