@@ -41,7 +41,10 @@ export class AuthService {
   }
 
   isAuth() {
-    return this.user.userId != '';
+    if (this.user?.userId) {
+      return true;
+    }
+    return false;
   }
 
   private onSuccessfulAuthentication() {
