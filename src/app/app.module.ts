@@ -20,7 +20,6 @@ import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
@@ -56,7 +55,6 @@ const appRoutes: Routes = [
     HomePageComponent,
     AnimationComponent,
     HeaderComponent,
-    FooterComponent,
     LoginComponent,
     SignupComponent,
   ],

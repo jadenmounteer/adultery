@@ -6,10 +6,7 @@
     <ng-content select="[pageContent]"></ng-content>
   </div>
 
-  <div
-    class="adultery-page-footer"
-    [ngClass]="{ 'logged-in-footer': user.isLoggedIn }"
-  >
+  <div class="adultery-page-footer">
     <ng-content select="[pageFooter]"> </ng-content>
   </div>
 </div>
