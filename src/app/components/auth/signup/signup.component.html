@@ -1,1 +1,23 @@
-<p>signup works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <h1>Sign Up to Start Adulting!</h1>
+  <input
+    type="email"
+    placeholder="Email"
+    ngModel
+    name="email"
+    required
+    #emailInput="ngModel"
+  />
+
+  <input
+    type="password"
+    placeholder="Password"
+    ngModel
+    name="password"
+    required
+    minlength="6"
+    #pwInput="ngModel"
+  />
+
+  <button type="submit" [disabled]="!f.valid">Sign Up</button>
+</form>

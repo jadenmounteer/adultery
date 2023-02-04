@@ -25,6 +25,7 @@ import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './components/auth/auth.service';
+import { FormsModule } from '@angular/forms';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -71,6 +72,7 @@ const appRoutes: Routes = [
     LottieModule.forRoot({ player: playerFactory }),
     NgbModule,
     NgbDropdownModule,
+    FormsModule,
   ],
   providers: [QuotesService, AuthService],
   bootstrap: [AppComponent],
