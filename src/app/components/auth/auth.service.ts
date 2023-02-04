@@ -32,6 +32,7 @@ export class AuthService {
   }
 
   getUser() {
+    // The spread operator here returns a different object with the same properties as the private user object.
     return { ...this.user };
   }
 }
