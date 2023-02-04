@@ -1,7 +1,9 @@
+import { Subject } from 'rxjs';
 import { User } from 'src/app/types/user';
 import { AuthData } from './auth-data.model';
 
 export class AuthService {
+  public authChange = new Subject<boolean>();
   private user!: User;
 
   registerUser(authData: AuthData) {
@@ -11,6 +13,7 @@ export class AuthService {
       name: 'Jaden',
       isLoggedIn: true,
     };
+    this.authChange.next(true);
   }
 
   login(authData: AuthData) {
@@ -20,6 +23,7 @@ export class AuthService {
       name: 'Jaden',
       isLoggedIn: true,
     };
+    this.authChange.next(true);
   }
 
   logout() {
@@ -29,6 +33,7 @@ export class AuthService {
       name: '',
       isLoggedIn: false,
     };
+    this.authChange.next(false);
   }
 
   getUser() {
