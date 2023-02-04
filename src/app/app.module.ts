@@ -23,6 +23,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -38,6 +39,10 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'signup',
+    component: SignupComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -51,6 +56,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
