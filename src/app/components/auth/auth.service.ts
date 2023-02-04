@@ -30,11 +30,20 @@ export class AuthService {
   }
 
   login(authData: AuthData) {
-    this.user = {
-      email: authData.email,
-      userId: String(Math.round(Math.random() * 10000)),
-    };
-    this.onSuccessfulAuthentication();
+    // this.user = {
+    //   email: authData.email,
+    //   userId: String(Math.round(Math.random() * 10000)),
+    // };
+
+    this.afAuth
+      .signInWithEmailAndPassword(authData.email, authData.password)
+      .then((result) => {
+        console.log(result);
+        this.onSuccessfulAuthentication();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   logout() {
