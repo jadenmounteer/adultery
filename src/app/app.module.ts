@@ -24,6 +24,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './components/auth/auth.service';
 import { FormsModule } from '@angular/forms';
+import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -43,6 +44,10 @@ const appRoutes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
+  {
+    path: 'exercise-library',
+    component: ExerciseLibraryComponent,
+  },
 ];
 @NgModule({
   declarations: [
@@ -56,6 +61,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     SignupComponent,
+    ExerciseLibraryComponent,
   ],
   imports: [
     BrowserModule,

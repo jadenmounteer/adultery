@@ -51,7 +51,11 @@
             </span>
 
             <div class="dropdown-menu" ngbDropdownMenu>
-              <button ngbDropdownItem (click)="isMenuCollapsed = true">
+              <button
+                ngbDropdownItem
+                (click)="isMenuCollapsed = true"
+                [routerLink]="'exercise-library'"
+              >
                 Exercises
               </button>
               <button ngbDropdownItem (click)="isMenuCollapsed = true">
