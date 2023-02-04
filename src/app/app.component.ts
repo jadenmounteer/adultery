@@ -9,12 +9,6 @@ import { User } from './types/user';
 })
 export class AppComponent {
   title = 'adultery';
-  public user: User = {
-    email: 'test@test.com',
-    userId: '1234',
-    name: 'Jaden',
-    isLoggedIn: false,
-  };
   // items: Observable<any[]>;
 
   constructor(firestore: AngularFirestore) {

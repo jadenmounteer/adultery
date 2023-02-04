@@ -26,7 +26,7 @@
               <fa-icon [icon]="icon.faUser"></fa-icon>
 
               <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle
-                >Welcome {{ user.email }}
+                >Welcome {{ authService.getUser().email }}
               </a>
             </span>
 

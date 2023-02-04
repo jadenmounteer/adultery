@@ -1,5 +1,4 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { User } from 'src/app/types/user';
 import { IconService } from 'src/app/services/icon.service';
 import { AuthService } from '../auth/auth.service';
 import { Subscription } from 'rxjs';
@@ -12,8 +11,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  @Input()
-  user!: User;
   public isAuth: boolean = false;
   private authSubscription!: Subscription;
 

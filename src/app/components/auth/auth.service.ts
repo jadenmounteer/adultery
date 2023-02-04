@@ -10,8 +10,6 @@ export class AuthService {
     this.user = {
       email: authData.email,
       userId: String(Math.round(Math.random() * 10000)),
-      name: 'Jaden',
-      isLoggedIn: true,
     };
     this.authChange.next(true);
   }
@@ -20,8 +18,6 @@ export class AuthService {
     this.user = {
       email: authData.email,
       userId: String(Math.round(Math.random() * 10000)),
-      name: 'Jaden',
-      isLoggedIn: true,
     };
     this.authChange.next(true);
   }
@@ -30,8 +26,6 @@ export class AuthService {
     this.user = {
       email: '',
       userId: '',
-      name: '',
-      isLoggedIn: false,
     };
     this.authChange.next(false);
   }
