@@ -31,7 +31,10 @@
             </span>
 
             <div class="dropdown-menu" ngbDropdownMenu>
-              <button ngbDropdownItem (click)="isMenuCollapsed = true">
+              <button
+                ngbDropdownItem
+                (click)="isMenuCollapsed = true; authService.logout()"
+              >
                 Sign Out
               </button>
             </div>
