@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { User } from 'src/app/types/user';
 import { IconService } from 'src/app/services/icon.service';
+import { AuthService } from '../auth/auth.service';
+import { Subscription } from 'rxjs';
 
 // This component is inspired by the Responsive navbar here: https://ng-bootstrap.github.io/#/components/collapse/examples
 
@@ -9,13 +11,25 @@ import { IconService } from 'src/app/services/icon.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Input()
   user!: User;
+  public isAuth: boolean = false;
+  private authSubscription!: Subscription;
 
   protected isMenuCollapsed: boolean = true;
 
-  constructor(public icon: IconService) {}
+  constructor(public icon: IconService, public authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.authSubscription = this.authService.authChange.subscribe(
+      (authStatus) => {
+        this.isAuth = authStatus;
+      }
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.authSubscription.unsubscribe();
+  }
 }

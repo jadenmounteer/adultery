@@ -1,4 +1,4 @@
-<!-- <div *ngIf="user.isLoggedIn">
+<!-- <div *ngIf="isAuth">
     <p>Welcome {{ user.name }}</p>
     <app-quotes></app-quotes>
   </div> -->
@@ -16,21 +16,21 @@
 
     <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav">
-        <li class="nav-item active" *ngIf="!user.isLoggedIn">
+        <li class="nav-item active" *ngIf="!isAuth">
           <a class="nav-link" [routerLink]="'login'">Login </a>
         </li>
 
-        <li class="nav-item active" *ngIf="!user.isLoggedIn">
+        <li class="nav-item active" *ngIf="!isAuth">
           <a class="nav-link" [routerLink]="'signup'">Sign Up </a>
         </li>
 
-        <li class="nav-item active" *ngIf="user.isLoggedIn">
+        <li class="nav-item active" *ngIf="isAuth">
           <div ngbDropdown>
             <span class="nav-link-container">
               <fa-icon [icon]="icon.faUser"></fa-icon>
 
               <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle
-                >Welcome {{ user.name }}
+                >Welcome {{ user.email }}
               </a>
             </span>
 
@@ -42,7 +42,7 @@
           </div>
         </li>
 
-        <li class="nav-item active" *ngIf="user.isLoggedIn">
+        <li class="nav-item active" *ngIf="isAuth">
           <div ngbDropdown>
             <span class="nav-link-container">
               <fa-icon [icon]="icon.faDumbbell"></fa-icon>
@@ -64,7 +64,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item active" *ngIf="user.isLoggedIn">
+        <li class="nav-item active" *ngIf="isAuth">
           <div ngbDropdown>
             <span class="nav-link-container">
               <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle
