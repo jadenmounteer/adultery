@@ -4,7 +4,7 @@
   </div> -->
 <nav class="navbar navbar-expand-lg navbar-light mb-3">
   <div class="container-fluid">
-    <a class="navbar-brand">Adultery</a>
+    <a class="navbar-brand" [routerLink]="'.'">Adultery</a>
 
     <button
       class="navbar-toggler"
@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
       <ul class="navbar-nav">
         <li class="nav-item active" *ngIf="!user.isLoggedIn">
-          <a class="nav-link" [routerLink]="'.'">Login </a>
+          <a class="nav-link" [routerLink]="'login'">Login </a>
         </li>
 
         <li class="nav-item active" *ngIf="!user.isLoggedIn">

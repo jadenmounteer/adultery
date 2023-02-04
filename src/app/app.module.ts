@@ -34,6 +34,10 @@ const appRoutes: Routes = [
     path: '',
     component: HomePageComponent,
   },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
 ];
 @NgModule({
   declarations: [
