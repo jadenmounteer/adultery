@@ -15,7 +15,6 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomePageComponent } from './components/home-page/home-page.component';
-import { RouterModule, Routes } from '@angular/router';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
 import { HeaderComponent } from './components/header/header.component';
@@ -31,24 +30,6 @@ export function playerFactory(): any {
   return import('lottie-web');
 }
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomePageComponent,
-  },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'signup',
-    component: SignupComponent,
-  },
-  {
-    path: 'exercise-library',
-    component: ExerciseLibraryComponent,
-  },
-];
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +47,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
     FontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
