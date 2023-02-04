@@ -12,6 +12,16 @@ export class AuthService {
 
   constructor(private router: Router, private afAuth: AngularFireAuth) {}
 
+  iniAuthListener() {
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.onSuccessfulAuthentication();
+      } else {
+        this.onUnsuccessfulAuthentication();
+      }
+    });
+  }
+
   registerUser(authData: AuthData) {
     this.afAuth
       .createUserWithEmailAndPassword(authData.email, authData.password)
@@ -29,7 +39,6 @@ export class AuthService {
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then((result) => {
         console.log(result);
-        this.onSuccessfulAuthentication();
       })
       .catch((error) => {
         console.log(error);
@@ -37,8 +46,8 @@ export class AuthService {
   }
 
   logout() {
-    this.isAuthenticated = false;
-    this.authChange.next(false);
+    // TODO Cancel subscriptions in your services here. (see videso 95 and 96)
+    this.afAuth.signOut();
   }
 
   isAuth() {
@@ -48,6 +57,12 @@ export class AuthService {
   private onSuccessfulAuthentication() {
     this.isAuthenticated = true;
     this.authChange.next(true);
+    this.router.navigate(['']);
+  }
+
+  private onUnsuccessfulAuthentication() {
+    this.isAuthenticated = false;
+    this.authChange.next(false);
     this.router.navigate(['']);
   }
 }
