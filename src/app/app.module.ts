@@ -18,7 +18,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
-import player from 'lottie-web';
 import { HeaderComponent } from './components/header/header.component';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/auth/login/login.component';
