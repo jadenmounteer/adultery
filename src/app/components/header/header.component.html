@@ -25,8 +25,12 @@
             <span class="nav-link-container">
               <fa-icon [icon]="icon.faUser"></fa-icon>
 
-              <a class="nav-link" [routerLink]="'.'" ngbDropdownToggle
-                >Welcome ...
+              <a
+                class="nav-link"
+                [routerLink]="'.'"
+                ngbDropdownToggle
+                *ngIf="authService.user$ | async as user"
+                >Welcome {{ user.email }}
               </a>
             </span>
 
