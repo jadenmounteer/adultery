@@ -23,14 +23,14 @@
         <li class="nav-item active" *ngIf="isAuth">
           <div ngbDropdown>
             <span class="nav-link-container">
-              <fa-icon [icon]="icon.faUser" ngbDropdownToggle></fa-icon>
-
+              <fa-icon [icon]="icon.faUser"></fa-icon>
               <a
                 class="nav-link"
                 [routerLink]="'.'"
                 ngbDropdownToggle
                 *ngIf="authService.user$ | async as user"
-                >Welcome {{ user.email }}
+              >
+                {{ user.email }}
               </a>
             </span>
 

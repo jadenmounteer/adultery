@@ -61,6 +61,7 @@ export class AuthService {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.onSuccessfulAuthentication();
+        this.updateUserData(user);
       } else {
         this.onUnsuccessfulAuthentication();
       }
