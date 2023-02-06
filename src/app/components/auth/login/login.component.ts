@@ -18,4 +18,8 @@ export class LoginComponent implements OnInit {
       password: form.value.password,
     });
   }
+
+  public onOathSignIn() {
+    this.authService.googleSignin();
+  }
 }

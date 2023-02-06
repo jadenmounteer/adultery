@@ -21,3 +21,9 @@
 
   <button type="submit" [disabled]="!f.valid">Login</button>
 </form>
+
+<form #oathForm="ngForm" (ngSubmit)="onOathSignIn()">
+  <div>
+    <button typ="submit">Login with Google</button>
+  </div>
+</form>
