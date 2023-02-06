@@ -24,6 +24,8 @@
 
 <form #oathForm="ngForm" (ngSubmit)="onOathSignIn()">
   <div>
-    <button typ="submit">Login with Google</button>
+    <button typ="submit">
+      <fa-icon [icon]="icon.faGoogle"></fa-icon> Continue with Google
+    </button>
   </div>
 </form>

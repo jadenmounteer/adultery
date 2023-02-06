@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { IconService } from 'src/app/services/icon.service';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.scss'],
 })
 export class SignupComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, public icon: IconService) {}
 
   ngOnInit(): void {}
 
@@ -17,5 +18,9 @@ export class SignupComponent implements OnInit {
       email: form.value.email,
       password: form.value.password,
     });
+  }
+
+  public onOathSignIn() {
+    this.authService.googleSignin();
   }
 }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { faDumbbell, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 @Injectable({
   providedIn: 'root',
@@ -7,6 +8,7 @@ import { faDumbbell, faUser } from '@fortawesome/free-solid-svg-icons';
 export class IconService {
   public faDumbbell = faDumbbell;
   public faUser = faUser;
+  public faGoogle = faGoogle;
 
   constructor() {}
 }
