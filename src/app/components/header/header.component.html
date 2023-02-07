@@ -36,7 +36,7 @@
               <fa-icon [icon]="icon.faUser"></fa-icon>
               <a
                 class="nav-link"
-                [routerLink]="'.'"
+                style="cursor: pointer"
                 ngbDropdownToggle
                 *ngIf="authService.user$ | async as user"
               >

@@ -1,1 +1,9 @@
-<p>exercise-library works!</p>
+<div *ngIf="exercisesLoaded" class="exercises-container">
+  <li *ngFor="let exercise of defaultExercises">
+    <span> {{ exercise.name }}</span>
+  </li>
+</div>
+
+<div class="loading-spinner-container" *ngIf="!exercisesLoaded">
+  <app-loading-spinner></app-loading-spinner>
+</div>
