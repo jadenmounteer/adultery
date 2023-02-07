@@ -10,4 +10,5 @@ export interface Exercise {
   description: string | null;
   maxes: Max[] | null;
   logs: ExerciseLog[] | null;
+  tags: string[] | null;
 }
