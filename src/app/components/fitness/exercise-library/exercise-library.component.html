@@ -1,5 +1,5 @@
-<app-content-wrapper>
-  <div *ngIf="exercisesLoaded" class="exercises-container">
+<app-content-wrapper [contentLoaded]="exercisesLoaded">
+  <div class="exercises-container">
     <li *ngFor="let exercise of defaultExercises">
       <span> {{ exercise.name }}</span>
     </li>

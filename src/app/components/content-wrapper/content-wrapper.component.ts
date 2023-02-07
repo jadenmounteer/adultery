@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-content-wrapper',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./content-wrapper.component.scss'],
 })
 export class ContentWrapperComponent implements OnInit {
-  public contentLoaded: boolean = false;
+  @Input() contentLoaded: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
