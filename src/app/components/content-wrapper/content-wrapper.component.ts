@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-content-wrapper',
   templateUrl: './content-wrapper.component.html',
-  styleUrls: ['./content-wrapper.component.scss']
+  styleUrls: ['./content-wrapper.component.scss'],
 })
 export class ContentWrapperComponent implements OnInit {
+  public contentLoaded: boolean = false;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

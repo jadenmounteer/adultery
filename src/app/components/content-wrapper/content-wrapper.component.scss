@@ -1,0 +1,17 @@
+@import 'src/app/scss-partials/main.scss';
+
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loading-spinner-container {
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  flex-wrap: wrap;
+  padding-left: $spacing-small;
+  padding-right: $spacing-small;
+  justify-content: center;
+}
