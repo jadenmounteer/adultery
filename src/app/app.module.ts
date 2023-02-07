@@ -25,6 +25,7 @@ import { AuthService } from './components/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { ExercisesService } from './services/exercises-service';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -59,7 +60,7 @@ export function playerFactory(): any {
     NgbDropdownModule,
     FormsModule,
   ],
-  providers: [QuotesService, AuthService],
+  providers: [QuotesService, AuthService, ExercisesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

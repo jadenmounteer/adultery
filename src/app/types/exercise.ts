@@ -4,8 +4,9 @@ import { Max } from './max';
 export interface Exercise {
   payload: any;
   id: string;
-  defaultQuote: boolean;
+  defaultExercise: boolean;
   exerciseImage: string | null;
+  name: string;
   description: string | null;
   maxes: Max[] | null;
   logs: ExerciseLog[] | null;
