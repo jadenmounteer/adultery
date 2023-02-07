@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { Exercise } from '../types/exercise';
 
 @Injectable()
-export class QuotesService {
+export class ExercisesService {
   public defaultExercises: Array<Exercise> = [];
   public exercisesChanged = new Subject<Exercise[]>();
 
