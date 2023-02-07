@@ -1,7 +1,9 @@
 <app-content-wrapper [contentLoaded]="exercisesLoaded">
   <div class="exercises-container">
-    <li *ngFor="let exercise of defaultExercises">
-      <span> {{ exercise.name }}</span>
-    </li>
+    <div *ngFor="let exercise of defaultExercises">
+      <app-exercise-library-item
+        [exercise]="exercise"
+      ></app-exercise-library-item>
+    </div>
   </div>
 </app-content-wrapper>

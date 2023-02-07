@@ -27,6 +27,7 @@ import { ExerciseLibraryComponent } from './components/fitness/exercise-library/
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ExercisesService } from './services/exercises-service';
 import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
+import { ExerciseLibraryItemComponent } from './components/exercise-library-item/exercise-library-item.component';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -47,6 +48,7 @@ export function playerFactory(): any {
     SignupComponent,
     ExerciseLibraryComponent,
     ContentWrapperComponent,
+    ExerciseLibraryItemComponent,
   ],
   imports: [
     BrowserModule,
