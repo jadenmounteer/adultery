@@ -1,1 +1,8 @@
+.exercises-container {
+  display: flex;
+  justify-content: center;
+}
 
+app-exercise-library-item {
+  width: 100%;
+}
