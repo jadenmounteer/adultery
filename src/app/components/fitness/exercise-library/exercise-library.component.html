@@ -1,9 +1,11 @@
-<div *ngIf="exercisesLoaded" class="exercises-container">
-  <li *ngFor="let exercise of defaultExercises">
-    <span> {{ exercise.name }}</span>
-  </li>
-</div>
+<app-content-wrapper>
+  <div *ngIf="exercisesLoaded" class="exercises-container">
+    <li *ngFor="let exercise of defaultExercises">
+      <span> {{ exercise.name }}</span>
+    </li>
+  </div>
 
-<div class="loading-spinner-container" *ngIf="!exercisesLoaded">
-  <app-loading-spinner></app-loading-spinner>
-</div>
+  <div class="loading-spinner-container" *ngIf="!exercisesLoaded">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+</app-content-wrapper>
