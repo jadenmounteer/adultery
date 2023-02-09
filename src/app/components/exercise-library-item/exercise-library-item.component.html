@@ -1,6 +1,9 @@
 <div class="exercise-item-container">
   <span>{{ exercise.name }}</span>
-  <div *ngFor="let tag of exercise.defaultTags">
-    <app-exercise-tag [tag]="tag"></app-exercise-tag>
+  <div class="tag-container">
+    <app-exercise-tag
+      *ngFor="let tag of exercise.defaultTags"
+      [tag]="tag"
+    ></app-exercise-tag>
   </div>
 </div>

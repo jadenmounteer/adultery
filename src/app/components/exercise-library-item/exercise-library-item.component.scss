@@ -3,4 +3,12 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  gap: 20%;
+  padding: 10px;
+}
+
+.tag-container {
+  display: flex;
+  gap: 5px;
 }
