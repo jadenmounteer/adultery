@@ -8,7 +8,5 @@ export interface Exercise {
   exerciseImage: string | null;
   name: string;
   description: string | null;
-  maxes: Max[] | null;
-  logs: ExerciseLog[] | null;
-  tags: string[] | null;
+  defaultTags: string[] | null;
 }
