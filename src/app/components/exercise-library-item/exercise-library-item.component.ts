@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IconService } from 'src/app/services/icon.service';
 import { Exercise } from 'src/app/types/exercise';
 
 @Component({
@@ -9,7 +10,7 @@ import { Exercise } from 'src/app/types/exercise';
 export class ExerciseLibraryItemComponent implements OnInit {
   @Input() exercise!: Exercise;
 
-  constructor() {}
+  constructor(public icon: IconService) {}
 
   ngOnInit(): void {}
 }
