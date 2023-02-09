@@ -20,7 +20,6 @@ export class ExerciseLibraryComponent implements OnInit, OnDestroy {
       this.exercisesService.exercisesChanged.subscribe((exercises) => {
         this.defaultExercises = exercises;
         this.exercisesLoaded = true;
-        console.log(exercises);
       });
     this.exercisesService.fetchDefaultExercises();
   }
