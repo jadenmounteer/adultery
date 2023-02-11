@@ -31,4 +31,8 @@ export class ExercisesService {
         this.exercisesChanged.next([...this.defaultExercises]);
       });
   }
+
+  public addNewExercise() {
+    console.log('Adding new exercise!');
+  }
 }

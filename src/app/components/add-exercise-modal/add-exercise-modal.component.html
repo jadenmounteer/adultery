@@ -15,8 +15,11 @@
       <input
         type="text"
         class="form-control"
-        id="inputName"
+        name="exerciseName"
+        id="name"
+        ngModel
         placeholder="Enter name"
+        #nameInput="ngModel"
       />
     </div>
   </form>
