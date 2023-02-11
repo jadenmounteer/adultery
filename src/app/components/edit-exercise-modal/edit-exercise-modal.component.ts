@@ -40,7 +40,7 @@ export class EditExerciseModalComponent implements OnInit {
   }
 
   public onDelete() {
-    // this.exercisesService.deleteExercise(this.exerciseToEdit);
-    // this.activeModal.close('Close click');
+    this.exercisesService.deleteExercise(this.exerciseToEdit);
+    this.activeModal.close('Close click');
   }
 }

@@ -41,6 +41,9 @@ export class ExercisesService {
   }
 
   public addNewExercise(newExercise: Exercise) {
+    // TODO I need to find a way to create the document id.
+    // This site might explain how: https://firebase.google.com/docs/firestore/manage-data/add-data
+    // Or I can watch the angular tutorial
     newExercise.id = this.firestore.createId();
     const exercisesRef = this.firestore.collection('exercises');
     exercisesRef.add({ ...newExercise });
@@ -55,8 +58,8 @@ export class ExercisesService {
     });
   }
 
-  // public deleteExercise(exerciseToDelete: Exercise) {
-  //   const exercisesRef = this.firestore.collection('exercises');
-  //   exercisesRef.doc(exerciseToDelete.id).delete();
-  // }
+  public deleteExercise(exerciseToDelete: Exercise) {
+    const exercisesRef = this.firestore.collection('exercises');
+    exercisesRef.doc(exerciseToDelete.id).delete();
+  }
 }
