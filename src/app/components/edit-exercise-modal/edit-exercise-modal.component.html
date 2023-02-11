@@ -16,10 +16,8 @@
         type="text"
         class="form-control"
         name="exerciseName"
-        [value]="exerciseToEdit.name"
         id="name"
-        ngModel
-        placeholder="Enter name"
+        [ngModel]="exerciseToEdit.name"
         #nameInput="ngModel"
       />
     </div>
@@ -29,8 +27,7 @@
         class="form-control"
         id="exerciseDescription"
         name="exerciseDescription"
-        [value]="exerciseToEdit.description"
-        ngModel
+        [ngModel]="exerciseToEdit.description"
         #exerciseDescriptionInput="ngModel"
         rows="3"
         placeholder="Describe how this exercise should be preformed."
