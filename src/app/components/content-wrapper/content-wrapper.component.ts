@@ -10,4 +10,8 @@ export class ContentWrapperComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public onClickAddButton() {
+    console.log('hello world');
+  }
 }
