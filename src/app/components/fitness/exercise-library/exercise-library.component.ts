@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { ExercisesService } from 'src/app/services/exercises-service';
 import { Exercise } from 'src/app/types/exercise';
+import { AddExerciseModalComponent } from '../../add-exercise-modal/add-exercise-modal.component';
 
 @Component({
   selector: 'app-exercise-library',
@@ -13,7 +15,10 @@ export class ExerciseLibraryComponent implements OnInit, OnDestroy {
   public defaultExercises: Array<Exercise> = [];
   public exercisesLoaded: boolean = false;
 
-  constructor(private exercisesService: ExercisesService) {}
+  constructor(
+    private exercisesService: ExercisesService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.exercisesSubscription =
@@ -26,5 +31,10 @@ export class ExerciseLibraryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.exercisesSubscription.unsubscribe();
+  }
+
+  public onClickAddButton() {
+    const modalRef = this.modalService.open(AddExerciseModalComponent);
+    modalRef.componentInstance.name = 'World';
   }
 }
