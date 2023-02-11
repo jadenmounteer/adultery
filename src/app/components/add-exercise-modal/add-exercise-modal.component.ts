@@ -12,8 +12,6 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./add-exercise-modal.component.scss'],
 })
 export class AddExerciseModalComponent {
-  @Input() name!: string;
-
   constructor(
     public activeModal: NgbActiveModal,
     private exercisesService: ExercisesService,
