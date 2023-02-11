@@ -1,5 +1,5 @@
 <div class="modal-header">
-  <h4 class="modal-title">Create New Exercise</h4>
+  <h4 class="modal-title">Edit {{ exerciseToEdit.name }}</h4>
 
   <button
     type="button"
@@ -16,6 +16,7 @@
         type="text"
         class="form-control"
         name="exerciseName"
+        [value]="exerciseToEdit.name"
         id="name"
         ngModel
         placeholder="Enter name"
@@ -28,6 +29,7 @@
         class="form-control"
         id="exerciseDescription"
         name="exerciseDescription"
+        [value]="exerciseToEdit.description"
         ngModel
         #exerciseDescriptionInput="ngModel"
         rows="3"
