@@ -32,7 +32,6 @@ export class ExercisesService {
       )
       .subscribe((exercises: Exercise[]) => {
         const userId = this.authService.userId;
-        // TODO filter for the user's exercises here
         this.exercises = exercises.filter((exercise: Exercise) => {
           return exercise.userId === userId;
         });
