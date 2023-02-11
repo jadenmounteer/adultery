@@ -20,10 +20,11 @@ export class EditExerciseModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.exerciseToEdit.id);
+    console.log(this.exerciseToEdit);
   }
 
   public onSubmit(form: NgForm) {
+    console.log(this.exerciseToEdit.id);
     const updatedExercise: Exercise = {
       id: this.exerciseToEdit.id,
       userId: this.authService.userId,
@@ -33,9 +34,13 @@ export class EditExerciseModalComponent implements OnInit {
       description: form.value.exerciseDescription,
       defaultTags: null,
     };
-
     console.log(updatedExercise);
     this.exercisesService.updateExercise(updatedExercise);
     this.activeModal.close('Close click');
+  }
+
+  public onDelete() {
+    // this.exercisesService.deleteExercise(this.exerciseToEdit);
+    // this.activeModal.close('Close click');
   }
 }

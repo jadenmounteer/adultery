@@ -32,6 +32,7 @@ export class ExercisesService {
       )
       .subscribe((exercises: Exercise[]) => {
         const userId = this.authService.userId;
+        console.log(exercises);
         this.exercises = exercises.filter((exercise: Exercise) => {
           return exercise.userId === userId;
         });
@@ -40,15 +41,22 @@ export class ExercisesService {
   }
 
   public addNewExercise(newExercise: Exercise) {
+    newExercise.id = this.firestore.createId();
     const exercisesRef = this.firestore.collection('exercises');
     exercisesRef.add({ ...newExercise });
   }
 
   public updateExercise(exerciseToUpdate: Exercise) {
+    console.log(`Updating exercise id: ${exerciseToUpdate.id}`);
     const exercisesRef = this.firestore.collection('exercises');
-    exercisesRef.doc('CDtQIsa9ubMDdn8zqGKl').update({
+    exercisesRef.doc(exerciseToUpdate.id).update({
       name: exerciseToUpdate.name,
       description: exerciseToUpdate.description,
     });
   }
+
+  // public deleteExercise(exerciseToDelete: Exercise) {
+  //   const exercisesRef = this.firestore.collection('exercises');
+  //   exercisesRef.doc(exerciseToDelete.id).delete();
+  // }
 }
