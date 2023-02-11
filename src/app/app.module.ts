@@ -31,6 +31,7 @@ import { ExerciseLibraryItemComponent } from './components/exercise-library-item
 import { ExerciseTagComponent } from './components/exercise-tag/exercise-tag.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { AddExerciseModalComponent } from './components/add-exercise-modal/add-exercise-modal.component';
+import { EditExerciseModalComponent } from './components/edit-exercise-modal/edit-exercise-modal.component';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -55,6 +56,7 @@ export function playerFactory(): any {
     ExerciseTagComponent,
     AddButtonComponent,
     AddExerciseModalComponent,
+    EditExerciseModalComponent,
   ],
   imports: [
     BrowserModule,
