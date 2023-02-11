@@ -14,7 +14,7 @@ import firebase from 'firebase/compat/app';
 export class AuthService {
   public authChange = new Subject<boolean>();
   private isAuthenticated: boolean = false;
-
+  public userId: string | undefined;
   public user$: Observable<User | null | undefined>;
 
   constructor(
@@ -44,6 +44,7 @@ export class AuthService {
   }
 
   private updateUserData(user: firebase.User | null) {
+    this.userId = user?.uid;
     // Sets user data to firestore on login
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user?.uid}`

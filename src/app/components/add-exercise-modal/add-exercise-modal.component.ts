@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExercisesService } from 'src/app/services/exercises-service';
 import { Exercise } from 'src/app/types/exercise';
+import { AuthService } from '../auth/auth.service';
 
 // This component is inspired by NGB's docs: https://ng-bootstrap.github.io/#/components/modal/examples
 @Component({
@@ -15,11 +16,13 @@ export class AddExerciseModalComponent {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private exercisesService: ExercisesService
+    private exercisesService: ExercisesService,
+    public authService: AuthService
   ) {}
 
   public onSubmit(form: NgForm) {
     const newExercise: Exercise = {
+      userId: this.authService.userId,
       defaultExercise: false,
       exerciseImage: null,
       name: form.value.exerciseName,
