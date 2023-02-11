@@ -20,6 +20,7 @@ export class AddExerciseModalComponent {
 
   public onSubmit(form: NgForm) {
     const newExercise: Exercise = {
+      id: '',
       userId: this.authService.userId,
       defaultExercise: false,
       exerciseImage: null,

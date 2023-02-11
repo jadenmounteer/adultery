@@ -19,19 +19,23 @@ export class EditExerciseModalComponent implements OnInit {
     public authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.exerciseToEdit.id);
+  }
 
   public onSubmit(form: NgForm) {
-    // const newExercise: Exercise = {
-    //   userId: this.authService.userId,
-    //   defaultExercise: false,
-    //   exerciseImage: null,
-    //   name: form.value.exerciseName,
-    //   description: form.value.exerciseDescription,
-    //   defaultTags: null,
-    // };
+    const updatedExercise: Exercise = {
+      id: this.exerciseToEdit.id,
+      userId: this.authService.userId,
+      defaultExercise: false,
+      exerciseImage: null,
+      name: form.value.exerciseName,
+      description: form.value.exerciseDescription,
+      defaultTags: null,
+    };
 
-    // this.exercisesService.addNewExercise(newExercise);
+    console.log(updatedExercise);
+    this.exercisesService.updateExercise(updatedExercise);
     this.activeModal.close('Close click');
   }
 }
