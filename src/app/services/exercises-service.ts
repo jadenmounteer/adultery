@@ -2,14 +2,18 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../components/auth/auth.service';
 import { Exercise } from '../types/exercise';
 
 @Injectable()
 export class ExercisesService {
-  public defaultExercises: Array<Exercise> = [];
+  public exercises: Array<Exercise> = [];
   public exercisesChanged = new Subject<Exercise[]>();
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(
+    private firestore: AngularFirestore,
+    private authService: AuthService
+  ) {}
 
   public fetchExercises() {
     this.firestore
@@ -27,9 +31,12 @@ export class ExercisesService {
         })
       )
       .subscribe((exercises: Exercise[]) => {
+        const userId = this.authService.userId;
         // TODO filter for the user's exercises here
-        this.defaultExercises = exercises;
-        this.exercisesChanged.next([...this.defaultExercises]);
+        this.exercises = exercises.filter((exercise: Exercise) => {
+          return exercise.userId === userId;
+        });
+        this.exercisesChanged.next([...this.exercises]);
       });
   }
 
