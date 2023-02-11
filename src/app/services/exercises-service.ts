@@ -45,7 +45,6 @@ export class ExercisesService {
   }
 
   public updateExercise(exerciseToUpdate: Exercise) {
-    console.log('Updating exercise!');
     const exercisesRef = this.firestore.collection('exercises');
     exercisesRef.doc('CDtQIsa9ubMDdn8zqGKl').update({
       name: exerciseToUpdate.name,
