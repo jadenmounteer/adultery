@@ -11,9 +11,9 @@ export class ExercisesService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  public fetchDefaultExercises() {
+  public fetchExercises() {
     this.firestore
-      .collection('defaultExercises')
+      .collection('exercises')
       .snapshotChanges()
       .pipe(
         map((docArray: any[]) => {
@@ -27,6 +27,7 @@ export class ExercisesService {
         })
       )
       .subscribe((exercises: Exercise[]) => {
+        // TODO filter for the user's exercises here
         this.defaultExercises = exercises;
         this.exercisesChanged.next([...this.defaultExercises]);
       });

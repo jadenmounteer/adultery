@@ -26,7 +26,7 @@ export class ExerciseLibraryComponent implements OnInit, OnDestroy {
         this.defaultExercises = exercises;
         this.exercisesLoaded = true;
       });
-    this.exercisesService.fetchDefaultExercises();
+    this.exercisesService.fetchExercises();
   }
 
   ngOnDestroy(): void {
