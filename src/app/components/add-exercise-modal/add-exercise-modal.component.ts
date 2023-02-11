@@ -26,7 +26,7 @@ export class AddExerciseModalComponent {
       defaultExercise: false,
       exerciseImage: null,
       name: form.value.exerciseName,
-      description: null,
+      description: form.value.exerciseDescription,
       defaultTags: null,
     };
 
