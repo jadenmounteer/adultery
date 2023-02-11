@@ -35,6 +35,5 @@ export class ExerciseLibraryComponent implements OnInit, OnDestroy {
 
   public onClickAddButton() {
     const modalRef = this.modalService.open(AddExerciseModalComponent);
-    modalRef.componentInstance.name = 'World';
   }
 }
