@@ -18,6 +18,6 @@ export class ExerciseLibraryItemComponent implements OnInit {
 
   public onClickEditButton() {
     const modalRef = this.modalService.open(EditExerciseModalComponent);
-    modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.exerciseToEdit = this.exercise;
   }
 }

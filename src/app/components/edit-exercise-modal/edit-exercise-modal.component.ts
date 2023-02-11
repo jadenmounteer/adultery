@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExercisesService } from 'src/app/services/exercises-service';
+import { Exercise } from 'src/app/types/exercise';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./edit-exercise-modal.component.scss'],
 })
 export class EditExerciseModalComponent implements OnInit {
+  @Input() exerciseToEdit!: Exercise;
+
   constructor(
     public activeModal: NgbActiveModal,
     private exercisesService: ExercisesService,
