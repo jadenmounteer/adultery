@@ -32,7 +32,8 @@ export class ExercisesService {
       });
   }
 
-  public addNewExercise() {
-    console.log('Adding new exercise!');
+  public addNewExercise(newExercise: Exercise) {
+    const exercisesRef = this.firestore.collection('exercises');
+    exercisesRef.add({ ...newExercise });
   }
 }

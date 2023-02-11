@@ -20,8 +20,6 @@ export class AddExerciseModalComponent {
 
   public onSubmit(form: NgForm) {
     const newExercise: Exercise = {
-      payload: undefined,
-      id: '',
       defaultExercise: false,
       exerciseImage: null,
       name: form.value.exerciseName,
@@ -29,8 +27,7 @@ export class AddExerciseModalComponent {
       defaultTags: null,
     };
 
-    console.log(newExercise);
-    this.exercisesService.addNewExercise();
+    this.exercisesService.addNewExercise(newExercise);
     this.activeModal.close('Close click');
   }
 }
