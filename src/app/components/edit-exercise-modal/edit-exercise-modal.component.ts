@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ExercisesService } from 'src/app/services/exercises-service';
 import { Exercise } from 'src/app/types/exercise';
 import { AuthService } from '../auth/auth.service';
+import { ConfirmModalComponent } from '../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-edit-exercise-modal',
@@ -16,7 +17,8 @@ export class EditExerciseModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
     private exercisesService: ExercisesService,
-    public authService: AuthService
+    public authService: AuthService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -33,13 +35,15 @@ export class EditExerciseModalComponent implements OnInit {
       description: form.value.exerciseDescription,
       defaultTags: null,
     };
-    console.log(updatedExercise);
     this.exercisesService.updateExercise(updatedExercise);
     this.activeModal.close('Close click');
   }
 
   public onDelete() {
-    this.exercisesService.deleteExercise(this.exerciseToEdit);
-    this.activeModal.close('Close click');
+    const modalRef = this.modalService.open(ConfirmModalComponent);
+    modalRef.componentInstance.message = `Are you sure you want to delete ${this.exerciseToEdit.name}?`;
+
+    // this.exercisesService.deleteExercise(this.exerciseToEdit);
+    // this.activeModal.close('Close click');
   }
 }
