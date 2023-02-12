@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { IconService } from 'src/app/services/icon.service';
 import { Exercise } from 'src/app/types/exercise';
 import { EditExerciseModalComponent } from '../edit-exercise-modal/edit-exercise-modal.component';
+import { ViewExerciseModalComponent } from '../view-exercise-modal/view-exercise-modal.component';
 
 @Component({
   selector: 'app-exercise-library-item',
@@ -19,5 +20,10 @@ export class ExerciseLibraryItemComponent implements OnInit {
   public onClickEditButton() {
     const modalRef = this.modalService.open(EditExerciseModalComponent);
     modalRef.componentInstance.exerciseToEdit = this.exercise;
+  }
+
+  public onClickExerciseItem() {
+    const modalRef = this.modalService.open(ViewExerciseModalComponent);
+    modalRef.componentInstance.exercise = this.exercise;
   }
 }
