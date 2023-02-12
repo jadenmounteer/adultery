@@ -30,10 +30,4 @@
   </button>
 </form>
 
-<form #oathForm="ngForm" (ngSubmit)="onOathSignIn()">
-  <div class="form-group">
-    <button typ="submit">
-      <fa-icon [icon]="icon.faGoogle"></fa-icon> Sign up with Google
-    </button>
-  </div>
-</form>
+<app-google-button (click)="onOathSignIn()"></app-google-button>
