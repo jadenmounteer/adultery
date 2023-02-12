@@ -24,7 +24,6 @@ export class EditExerciseModalComponent implements OnInit {
   }
 
   public onSubmit(form: NgForm) {
-    console.log(this.exerciseToEdit.id);
     const updatedExercise: Exercise = {
       id: this.exerciseToEdit.id,
       userId: this.authService.userId,

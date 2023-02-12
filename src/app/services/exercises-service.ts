@@ -25,14 +25,18 @@ export class ExercisesService {
           return docArray.map((doc) => {
             return {
               id: doc.payload.doc.id,
-              ...doc.payload.doc.data(),
+              defaultExercise: doc.payload.doc.data().defaultExercise,
+              defaultTags: doc.payload.doc.data().defaultTags,
+              description: doc.payload.doc.data().description,
+              exerciseImage: doc.payload.doc.data().exerciseImage,
+              name: doc.payload.doc.data().name,
+              userId: doc.payload.doc.data().userId,
             };
           });
         })
       )
       .subscribe((exercises: Exercise[]) => {
         const userId = this.authService.userId;
-        console.log(exercises);
         this.exercises = exercises.filter((exercise: Exercise) => {
           return exercise.userId === userId;
         });
@@ -41,16 +45,11 @@ export class ExercisesService {
   }
 
   public addNewExercise(newExercise: Exercise) {
-    // TODO I need to find a way to create the document id.
-    // This site might explain how: https://firebase.google.com/docs/firestore/manage-data/add-data
-    // Or I can watch the angular tutorial
-    newExercise.id = this.firestore.createId();
     const exercisesRef = this.firestore.collection('exercises');
     exercisesRef.add({ ...newExercise });
   }
 
   public updateExercise(exerciseToUpdate: Exercise) {
-    console.log(`Updating exercise id: ${exerciseToUpdate.id}`);
     const exercisesRef = this.firestore.collection('exercises');
     exercisesRef.doc(exerciseToUpdate.id).update({
       name: exerciseToUpdate.name,

@@ -1,6 +1,3 @@
-import { ExerciseLog } from './exercise-log';
-import { Max } from './max';
-
 export interface Exercise {
   id: string;
   userId: string | undefined;
