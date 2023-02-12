@@ -11,6 +11,6 @@
   <fa-icon
     class="edit-button"
     [icon]="icon.faEdit"
-    (click)="onClickEditButton()"
+    (click)="onClickEditButton(); $event.stopPropagation()"
   ></fa-icon>
 </div>
