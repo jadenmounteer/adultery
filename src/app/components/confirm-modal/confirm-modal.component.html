@@ -8,7 +8,19 @@
     (click)="activeModal.dismiss('Cross click')"
   ></button>
 </div>
-<div class="modal-body"></div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary">Submit</button>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="activeModal.close('Yes')"
+  >
+    Yes
+  </button>
+  <button
+    type="button"
+    class="btn btn-secondary"
+    (click)="activeModal.close('No')"
+  >
+    No
+  </button>
 </div>
