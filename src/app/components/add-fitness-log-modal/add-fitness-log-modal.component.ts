@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FitnessLogsService } from 'src/app/services/fitness-logs.service';
 import { Exercise } from 'src/app/types/exercise';
+import { FitnessLog } from 'src/app/types/exercise-log';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -14,26 +16,28 @@ export class AddFitnessLogModalComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    public authService: AuthService
+    private authService: AuthService,
+    private fitnessLogsService: FitnessLogsService
   ) {}
 
   ngOnInit(): void {}
 
   public onSubmit(form: NgForm) {
     const logDescription = form.value.logDescription;
-    // const newExercise: Exercise = {
-    //   id: '',
-    //   userId: this.authService.userId,
-    //   defaultExercise: false,
-    //   exerciseImage: null,
-    //   name: form.value.exerciseName,
-    //   description: form.value.exerciseDescription,
-    //   defaultTags: null,
-    // };
+    const today = this.getDate();
+    const newLog: FitnessLog = {
+      id: '',
+      date: today,
+      text: logDescription,
+      userId: this.authService.userId,
+      parentId: this.parentItem.id,
+    };
 
-    // this.exercisesService.addNewExercise(newExercise);
+    this.fitnessLogsService.addNewLog(newLog);
     this.activeModal.close('Close click');
   }
 
-  private getDate() {}
+  private getDate() {
+    return new Date();
+  }
 }
