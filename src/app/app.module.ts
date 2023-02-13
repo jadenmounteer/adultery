@@ -35,7 +35,7 @@ import { EditExerciseModalComponent } from './components/edit-exercise-modal/edi
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { GoogleButtonComponent } from './components/google-button/google-button.component';
 import { ViewExerciseModalComponent } from './components/view-exercise-modal/view-exercise-modal.component';
-import { LogsComponent } from './components/logs/logs.component';
+import { FitnessLogsComponent } from './components/fitness-logs/fitness-logs.component';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -64,7 +64,7 @@ export function playerFactory(): any {
     ConfirmModalComponent,
     GoogleButtonComponent,
     ViewExerciseModalComponent,
-    LogsComponent,
+    FitnessLogsComponent,
   ],
   imports: [
     BrowserModule,
