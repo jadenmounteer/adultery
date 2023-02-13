@@ -9,6 +9,7 @@ import { Exercise } from 'src/app/types/exercise';
 })
 export class ViewExerciseModalComponent implements OnInit {
   @Input() exercise!: Exercise;
+
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {}
