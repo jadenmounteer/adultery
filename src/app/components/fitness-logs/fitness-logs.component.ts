@@ -15,7 +15,7 @@ import { AddFitnessLogModalComponent } from '../add-fitness-log-modal/add-fitnes
 export class FitnessLogsComponent implements OnInit, OnDestroy {
   @Input() parentItem!: Exercise;
   private fitnessLogsSubscription!: Subscription;
-  public defaultFitnessLogs: Array<FitnessLog> = [];
+  public fitnessLogs: Array<FitnessLog> = [];
   public fitnessLogsLoaded: boolean = false;
 
   constructor(
@@ -28,7 +28,7 @@ export class FitnessLogsComponent implements OnInit, OnDestroy {
     this.fitnessLogsSubscription =
       this.fitnessLogsService.fitnessLogsChanged.subscribe(
         (fitnessLogs: FitnessLog[]) => {
-          this.defaultFitnessLogs = fitnessLogs;
+          this.fitnessLogs = fitnessLogs;
           this.fitnessLogsLoaded = true;
         }
       );
