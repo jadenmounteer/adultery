@@ -18,8 +18,11 @@ export class FitnessLogsService {
   ) {}
 
   public fetchLogs(parentId: string) {
+    const userId = this.authService.userId;
     this.firestore
-      .collection('fitnessLogs')
+      .collection('fitnessLogs', (ref) =>
+        ref.where('userId', '==', userId).where('parentId', '==', parentId)
+      )
       .snapshotChanges()
       .pipe(
         map((docArray: any[]) => {
@@ -36,12 +39,7 @@ export class FitnessLogsService {
         })
       )
       .subscribe((fitnessLogs: FitnessLog[]) => {
-        const userId = this.authService.userId;
-        this.fitnessLogs = fitnessLogs.filter((fitnessLog: FitnessLog) => {
-          return (
-            fitnessLog.userId === userId && fitnessLog.parentId === parentId
-          );
-        });
+        this.fitnessLogs = fitnessLogs;
         this.fitnessLogsChanged.next([...this.fitnessLogs]);
       });
   }
