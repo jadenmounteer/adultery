@@ -8,19 +8,30 @@
     (click)="activeModal.dismiss('Cross click')"
   ></button>
 </div>
+<div class="modal-body">
+  <form #f="ngForm">
+    <div class="form-group">
+      <textarea
+        class="form-control"
+        id="logDescription"
+        name="logDescription"
+        ngModel
+        #logDescriptionInput="ngModel"
+        rows="3"
+        placeholder="Describe how this exercise should be preformed."
+      ></textarea>
+    </div>
+  </form>
+</div>
 <div class="modal-footer">
-  <button
-    type="button"
-    class="btn btn-primary"
-    (click)="activeModal.close('Yes')"
-  >
-    Yes
+  <button type="submit" class="btn btn-primary" (click)="onSubmit(f)">
+    Submit
   </button>
   <button
     type="button"
     class="btn btn-secondary"
     (click)="activeModal.close('No')"
   >
-    No
+    Cancel
   </button>
 </div>
