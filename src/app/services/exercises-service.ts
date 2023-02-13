@@ -16,27 +16,10 @@ export class ExercisesService {
     private authService: AuthService
   ) {}
 
-  public async newFetchExercises() {
-    // TODO finish this method.
-    // It needs to do what the last fetchExercises method did, update the exercises in real time.
-    // The benefit of using this method is that we query so we don't have to filter on the frontend..
-    // Inspired by these docs... https://firebase.google.com/docs/firestore/query-data/queries
-    // I probably want to use the getSnapshotListener() method as described here:
-
-    const userId = this.authService.userId;
-    const exercisesRef = collection(this.firestore.firestore, 'exercises');
-    const q = query(exercisesRef, where('userId', '==', userId));
-
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, ' => ', doc.data());
-    });
-  }
-
   public fetchExercises() {
+    const userId = this.authService.userId;
     this.firestore
-      .collection('exercises')
+      .collection('exercises', (ref) => ref.where('userId', '==', userId))
       .snapshotChanges()
       .pipe(
         map((docArray: any[]) => {
@@ -55,10 +38,7 @@ export class ExercisesService {
         })
       )
       .subscribe((exercises: Exercise[]) => {
-        const userId = this.authService.userId;
-        this.exercises = exercises.filter((exercise: Exercise) => {
-          return exercise.userId === userId;
-        });
+        this.exercises = exercises;
         this.exercisesChanged.next([...this.exercises]);
       });
   }
