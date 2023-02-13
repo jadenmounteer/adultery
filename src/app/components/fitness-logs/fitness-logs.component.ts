@@ -32,7 +32,7 @@ export class FitnessLogsComponent implements OnInit, OnDestroy {
           this.fitnessLogsLoaded = true;
         }
       );
-    this.fitnessLogsService.fetchLogs();
+    this.fitnessLogsService.fetchLogs(this.parentItem.id);
   }
 
   ngOnDestroy(): void {

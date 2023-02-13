@@ -17,7 +17,7 @@ export class FitnessLogsService {
     private authService: AuthService
   ) {}
 
-  public fetchLogs() {
+  public fetchLogs(parentId: string) {
     this.firestore
       .collection('fitnessLogs')
       .snapshotChanges()
@@ -38,7 +38,9 @@ export class FitnessLogsService {
       .subscribe((fitnessLogs: FitnessLog[]) => {
         const userId = this.authService.userId;
         this.fitnessLogs = fitnessLogs.filter((fitnessLog: FitnessLog) => {
-          return fitnessLog.userId === userId;
+          return (
+            fitnessLog.userId === userId && fitnessLog.parentId === parentId
+          );
         });
         this.fitnessLogsChanged.next([...this.fitnessLogs]);
       });
