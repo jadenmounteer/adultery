@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './components/auth/auth.guard';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
+import { FeatureComingSoonComponent } from './components/feature-coming-soon/feature-coming-soon.component';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 
@@ -22,6 +23,11 @@ const routes: Routes = [
   {
     path: 'exercise-library',
     component: ExerciseLibraryComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'coming-soon',
+    component: FeatureComingSoonComponent,
     canActivate: [AuthGuard],
   },
 ];

@@ -72,10 +72,18 @@
               >
                 Exercises
               </button>
-              <button ngbDropdownItem (click)="isMenuCollapsed = true">
+              <button
+                ngbDropdownItem
+                (click)="isMenuCollapsed = true"
+                [routerLink]="'coming-soon'"
+              >
                 Workouts
               </button>
-              <button ngbDropdownItem (click)="isMenuCollapsed = true">
+              <button
+                ngbDropdownItem
+                (click)="isMenuCollapsed = true"
+                [routerLink]="'coming-soon'"
+              >
                 Plans
               </button>
             </div>
