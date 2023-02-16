@@ -5,6 +5,7 @@ import {
   faEdit,
   faPlus,
   faPencilAlt,
+  faTools,
 } from '@fortawesome/free-solid-svg-icons';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -18,6 +19,7 @@ export class IconService {
   public faEdit = faEdit;
   public faPlus = faPlus;
   public faPencilAlt = faPencilAlt;
+  public faTools = faTools;
 
   constructor() {}
 }
