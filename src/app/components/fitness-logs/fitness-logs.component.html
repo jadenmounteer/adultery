@@ -1,10 +1,13 @@
 <div class="logs-section">
-  <h5>Logs</h5>
+  <div class="title-section">
+    <h5>Logs</h5>
+    <div class="pencil-icon">
+      <fa-icon [icon]="icon.faPencilAlt" (click)="onClickAddLog()"></fa-icon>
+    </div>
+  </div>
+
   <div *ngFor="let fitnessLog of fitnessLogs">
     <span class="log-date">{{ fitnessLog.date | date }} -</span>
     <span class="log-text"> {{ fitnessLog.text }}</span>
-  </div>
-  <div class="pencil-icon">
-    <fa-icon [icon]="icon.faPencilAlt" (click)="onClickAddLog()"></fa-icon>
   </div>
 </div>
