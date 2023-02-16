@@ -42,5 +42,6 @@ export class FitnessLogsComponent implements OnInit, OnDestroy {
   onClickAddLog() {
     const modalRef = this.modalService.open(AddFitnessLogModalComponent);
     modalRef.componentInstance.parentItem = this.parentItem;
+    console.log(this.fitnessLogsService.fitnessLogs);
   }
 }

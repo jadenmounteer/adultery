@@ -30,7 +30,7 @@ export class FitnessLogsService {
           return docArray.map((doc) => {
             return {
               id: doc.payload.doc.id,
-              date: doc.payload.doc.data().date,
+              date: doc.payload.doc.data().date.toDate(),
               text: doc.payload.doc.data().text,
               userId: doc.payload.doc.data().userId,
               parentId: doc.payload.doc.data().parentId,
