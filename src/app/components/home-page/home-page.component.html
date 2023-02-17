@@ -9,8 +9,20 @@
   <app-animation animationKey="kidAgainAnimation"></app-animation>
 
   <div class="login-or-sign-up-buttons-container">
-    <button type="button" class="btn btn-primary">Login</button>
-    <button type="button" class="btn btn-primary">Sign Up</button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="router.navigate(['/login'])"
+    >
+      Login
+    </button>
+    <button
+      type="button"
+      class="btn btn-primary"
+      (click)="router.navigate(['/signup'])"
+    >
+      Sign Up
+    </button>
   </div>
 </div>
 
