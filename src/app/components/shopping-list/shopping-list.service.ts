@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { ShoppingList } from './shopping-list-types/shopping-list';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class ShoppingListService {
