@@ -28,6 +28,8 @@ a {
 }
 
 .dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item.active,
 .navbar-brand:hover {
   background-color: rgba(0, 0, 0);
   color: #ababab;
