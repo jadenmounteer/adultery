@@ -17,7 +17,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
-import { HeaderComponent } from './components/header/header.component';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
@@ -53,7 +52,6 @@ export function playerFactory(): any {
     LoadingSpinnerComponent,
     HomePageComponent,
     AnimationComponent,
-    HeaderComponent,
     LoginComponent,
     SignupComponent,
     ExerciseLibraryComponent,
