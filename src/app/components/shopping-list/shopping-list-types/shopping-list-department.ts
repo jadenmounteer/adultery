@@ -1,0 +1,17 @@
+export enum ShoppingListDepartment {
+  PersonalCare = 'PersonalCare',
+  Grocery = 'Grocery',
+  Appliances = 'Appliances',
+  Home = 'Home',
+  Beauty = 'Beauty',
+  Pharmacy = 'Pharmacy',
+  Sports = 'Sports',
+  Outdoors = 'Outdoors',
+  PartySupplies = 'PartySupplies',
+  Garden = 'Garden',
+  Baby = 'Baby',
+  Automotive = 'Automotive',
+  Electronics = 'Electronics',
+  HomeImprovement = 'HomeImprovement',
+  Apparel = 'Apparel',
+}
