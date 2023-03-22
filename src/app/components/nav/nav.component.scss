@@ -21,7 +21,9 @@ a {
 .nav-link:hover,
 .nav-link:focus,
 .active,
-.a:hover {
+.a:hover,
+.navbar-brand:active,
+.navbar-brand:focus {
   color: #ababab;
 }
 
