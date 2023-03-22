@@ -9,7 +9,6 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -25,7 +24,6 @@ import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { ExercisesService } from './services/exercises-service';
-import { ContentWrapperComponent } from './components/content-wrapper/content-wrapper.component';
 import { ExerciseLibraryItemComponent } from './components/exercise-library-item/exercise-library-item.component';
 import { ExerciseTagComponent } from './components/exercise-tag/exercise-tag.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
@@ -37,6 +35,7 @@ import { ViewExerciseModalComponent } from './components/view-exercise-modal/vie
 import { FitnessLogsComponent } from './components/fitness-logs/fitness-logs.component';
 import { AddFitnessLogModalComponent } from './components/add-fitness-log-modal/add-fitness-log-modal.component';
 import { FeatureComingSoonComponent } from './components/feature-coming-soon/feature-coming-soon.component';
+import { UISharedModule } from './components/ui-shared-module/ui-shared-module.module';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -49,13 +48,11 @@ export function playerFactory(): any {
     NavComponent,
     PageWrapperComponent,
     QuotesComponent,
-    LoadingSpinnerComponent,
     HomePageComponent,
     AnimationComponent,
     LoginComponent,
     SignupComponent,
     ExerciseLibraryComponent,
-    ContentWrapperComponent,
     ExerciseLibraryItemComponent,
     ExerciseTagComponent,
     AddButtonComponent,
@@ -81,6 +78,7 @@ export function playerFactory(): any {
     NgbModule,
     NgbDropdownModule,
     FormsModule,
+    UISharedModule,
   ],
   providers: [QuotesService, AuthService, ExercisesService],
   bootstrap: [AppComponent],
