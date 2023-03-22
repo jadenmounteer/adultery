@@ -9,7 +9,7 @@ import { AuthService } from '../auth/auth.service';
 @Injectable({ providedIn: 'root' })
 export class ShoppingListService {
   public shopingLists: Array<ShoppingList> = [];
-  public shopingListsChanged = new Subject<ShoppingList[]>();
+  public shoppingListsChanged = new Subject<ShoppingList[]>();
 
   constructor(
     private authService: AuthService,
@@ -17,30 +17,28 @@ export class ShoppingListService {
   ) {}
 
   public fetchShoppingLists() {
-    // const userId = this.authService.userId;
-    // this.firestore
-    //   .collection('exercises', (ref) => ref.where('userId', '==', userId))
-    //   .snapshotChanges()
-    //   .pipe(
-    //     map((docArray: any[]) => {
-    //       // Here we map the data coming from the db to be the Quote type.
-    //       return docArray.map((doc) => {
-    //         return {
-    //           id: doc.payload.doc.id,
-    //           defaultExercise: doc.payload.doc.data().defaultExercise,
-    //           defaultTags: doc.payload.doc.data().defaultTags,
-    //           description: doc.payload.doc.data().description,
-    //           exerciseImage: doc.payload.doc.data().exerciseImage,
-    //           name: doc.payload.doc.data().name,
-    //           userId: doc.payload.doc.data().userId,
-    //         };
-    //       });
-    //     })
-    //   )
-    //   .subscribe((exercises: Exercise[]) => {
-    //     this.exercises = exercises;
-    //     this.exercisesChanged.next([...this.exercises]);
-    //   });
+    const userId = this.authService.userId;
+    this.firestore
+      .collection('shopping-lists', (ref) => ref.where('userId', '==', userId))
+      .snapshotChanges()
+      .pipe(
+        map((docArray: any[]) => {
+          // Here we map the data coming from the db to be the Quote type.
+          return docArray.map((doc) => {
+            return {
+              id: doc.payload.doc.id,
+              userId: doc.payload.doc.data().userId,
+              listName: doc.payload.doc.data().listName,
+              items: doc.payload.doc.data().items,
+              complete: doc.payload.doc.data().complete,
+            };
+          });
+        })
+      )
+      .subscribe((shopingLists: ShoppingList[]) => {
+        this.shopingLists = shopingLists;
+        this.shoppingListsChanged.next([...this.shopingLists]);
+      });
   }
 
   public addNewShoppingList(newShoppingList: ShoppingList) {

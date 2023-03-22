@@ -26,8 +26,8 @@ export class AddShoppingListModalComponent implements OnInit {
       id: '',
       userId: this.authService.userId,
       listName: form.value.name,
-      // complete: false,
-      // items: null,
+      complete: false,
+      items: null,
     };
     this.shoppingListService.addNewShoppingList(newShoppingList);
     this.activeModal.close('Close click');
