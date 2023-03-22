@@ -9,4 +9,6 @@ export class ShoppingListPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  protected onAddShoppingList() {}
 }

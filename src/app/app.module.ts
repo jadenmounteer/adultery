@@ -17,8 +17,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
 import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './components/auth/login/login.component';
-import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './components/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
@@ -30,12 +28,12 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 import { AddExerciseModalComponent } from './components/add-exercise-modal/add-exercise-modal.component';
 import { EditExerciseModalComponent } from './components/edit-exercise-modal/edit-exercise-modal.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
-import { GoogleButtonComponent } from './components/google-button/google-button.component';
 import { ViewExerciseModalComponent } from './components/view-exercise-modal/view-exercise-modal.component';
 import { FitnessLogsComponent } from './components/fitness-logs/fitness-logs.component';
 import { AddFitnessLogModalComponent } from './components/add-fitness-log-modal/add-fitness-log-modal.component';
 import { FeatureComingSoonComponent } from './components/feature-coming-soon/feature-coming-soon.component';
 import { UISharedModule } from './components/ui-shared-module/ui-shared-module.module';
+import { AuthModule } from './components/auth/auth.module';
 
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
@@ -50,8 +48,7 @@ export function playerFactory(): any {
     QuotesComponent,
     HomePageComponent,
     AnimationComponent,
-    LoginComponent,
-    SignupComponent,
+
     ExerciseLibraryComponent,
     ExerciseLibraryItemComponent,
     ExerciseTagComponent,
@@ -59,7 +56,7 @@ export function playerFactory(): any {
     AddExerciseModalComponent,
     EditExerciseModalComponent,
     ConfirmModalComponent,
-    GoogleButtonComponent,
+
     ViewExerciseModalComponent,
     FitnessLogsComponent,
     AddFitnessLogModalComponent,
@@ -79,6 +76,7 @@ export function playerFactory(): any {
     NgbDropdownModule,
     FormsModule,
     UISharedModule,
+    AuthModule,
   ],
   providers: [QuotesService, AuthService, ExercisesService],
   bootstrap: [AppComponent],
