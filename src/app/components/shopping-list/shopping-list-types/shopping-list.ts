@@ -5,5 +5,7 @@ export interface ShoppingList {
   id: string;
   userId: string | undefined;
   item: ShoppingListItem;
-  category: ShoppingListDepartment;
+  department: ShoppingListDepartment | undefined;
+  purchased: boolean;
+  quantity: number | undefined;
 }
