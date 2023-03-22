@@ -30,6 +30,7 @@ const routes: Routes = [
     component: FeatureComingSoonComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'shopping-list', loadChildren: () => import('./components/shopping-list/shopping-list.module').then(m => m.ShoppingListModule) },
 ];
 
 @NgModule({
