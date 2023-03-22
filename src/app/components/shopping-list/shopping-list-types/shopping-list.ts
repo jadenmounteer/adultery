@@ -4,6 +4,6 @@ export interface ShoppingList {
   id: string;
   userId: string | undefined;
   listName: string;
-  item: ShoppingListItem;
+  items: ShoppingListItem[] | undefined;
   complete: boolean;
 }

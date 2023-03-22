@@ -43,10 +43,10 @@ export class ShoppingListService {
     //   });
   }
 
-  //   public addNewShoppingList(newExercise: Exercise) {
-  //     const exercisesRef = this.firestore.collection('exercises');
-  //     exercisesRef.add({ ...newExercise });
-  //   }
+  public addNewShoppingList(newShoppingList: ShoppingList) {
+    const shoppingListRef = this.firestore.collection('shopping-lists');
+    shoppingListRef.add({ ...newShoppingList });
+  }
 
   //   public updateShoppingList(exerciseToUpdate: Exercise) {
   //     const exercisesRef = this.firestore.collection('exercises');
