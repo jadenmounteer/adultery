@@ -13,19 +13,21 @@ import { ShoppingListService } from '../shopping-list.service';
 export class AddShoppingListModalComponent implements OnInit {
   constructor(
     public activeModal: NgbActiveModal,
-    private shoppingListService: ShoppingListService,
-    public authService: AuthService
+    public authService: AuthService,
+    public shoppingListService: ShoppingListService
   ) {}
 
   ngOnInit(): void {}
 
   public onSubmit(form: NgForm) {
+    console.log(this.authService.userId);
+    console.log(form);
     const newShoppingList: ShoppingList = {
       id: '',
       userId: this.authService.userId,
       listName: form.value.name,
-      complete: false,
-      items: undefined,
+      // complete: false,
+      // items: null,
     };
     this.shoppingListService.addNewShoppingList(newShoppingList);
     this.activeModal.close('Close click');

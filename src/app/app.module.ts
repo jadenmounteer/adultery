@@ -78,7 +78,7 @@ export function playerFactory(): any {
     UISharedModule,
     AuthModule,
   ],
-  providers: [QuotesService, AuthService, ExercisesService],
+  providers: [QuotesService, ExercisesService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

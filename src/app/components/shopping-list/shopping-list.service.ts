@@ -6,14 +6,14 @@ import { collection, query, where, getDocs } from 'firebase/firestore';
 import { ShoppingList } from './shopping-list-types/shopping-list';
 import { AuthService } from '../auth/auth.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ShoppingListService {
   public shopingLists: Array<ShoppingList> = [];
   public shopingListsChanged = new Subject<ShoppingList[]>();
 
   constructor(
-    private firestore: AngularFirestore,
-    private authService: AuthService
+    private authService: AuthService,
+    private firestore: AngularFirestore
   ) {}
 
   public fetchShoppingLists() {
