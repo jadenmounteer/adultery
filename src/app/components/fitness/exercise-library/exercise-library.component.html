@@ -1,12 +1,17 @@
 <app-content-wrapper [contentLoaded]="exercisesLoaded">
-  <div class="exercises-container">
-    <app-exercise-library-item
-      *ngFor="let exercise of defaultExercises"
-      [exercise]="exercise"
-    ></app-exercise-library-item>
+  <div pageHeader>
+    <h1>Exercise Library</h1>
   </div>
+  <div pageContent>
+    <div class="exercises-container">
+      <app-exercise-library-item
+        *ngFor="let exercise of defaultExercises"
+        [exercise]="exercise"
+      ></app-exercise-library-item>
+    </div>
 
-  <div class="add-button-container">
-    <app-add-button (click)="onClickAddButton()"></app-add-button>
+    <div class="add-button-container">
+      <app-add-button (click)="onClickAddButton()"></app-add-button>
+    </div>
   </div>
 </app-content-wrapper>

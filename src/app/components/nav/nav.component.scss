@@ -3,6 +3,7 @@
 .navbar,
 .dropdown-menu {
   background-color: rgba(0, 0, 0);
+  min-height: $page-header-and-footer-height;
 }
 
 .navbar-logo-img {

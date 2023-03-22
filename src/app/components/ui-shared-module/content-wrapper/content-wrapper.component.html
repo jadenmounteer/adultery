@@ -1,6 +1,10 @@
 <div class="content-wrapper">
+  <div class="page-header">
+    <ng-content select="[pageHeader]"> </ng-content>
+  </div>
+
   <div class="content-container" *ngIf="contentLoaded">
-    <ng-content></ng-content>
+    <ng-content select="[pageContent]"></ng-content>
   </div>
   <div class="loading-spinner-container" *ngIf="!contentLoaded">
     <app-loading-spinner></app-loading-spinner>
