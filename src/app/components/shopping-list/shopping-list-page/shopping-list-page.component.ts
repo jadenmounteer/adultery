@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddShoppingListModalComponent } from '../add-shopping-list-modal/add-shopping-list-modal.component';
 
 @Component({
   selector: 'app-shopping-list-page',
@@ -6,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-list-page.component.scss'],
 })
 export class ShoppingListPageComponent implements OnInit {
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
 
-  protected onAddShoppingList() {}
+  protected onAddShoppingList() {
+    const modalRef = this.modalService.open(AddShoppingListModalComponent);
+  }
 }
