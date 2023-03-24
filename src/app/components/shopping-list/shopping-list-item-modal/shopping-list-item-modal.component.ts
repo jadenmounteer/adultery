@@ -9,6 +9,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ShoppingListItemModalComponent implements OnInit {
   @Input() message!: string;
+  protected departmentKeys: string[] = [];
 
   constructor(public activeModal: NgbActiveModal) {}
 
