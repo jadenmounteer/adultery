@@ -8,9 +8,10 @@ import { AddShoppingListModalComponent } from './add-shopping-list-modal/add-sho
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 @NgModule({
-  declarations: [ShoppingListPageComponent, AddShoppingListModalComponent],
+  declarations: [ShoppingListPageComponent, AddShoppingListModalComponent, ShoppingListComponent],
   imports: [
     CommonModule,
     ShoppingListRoutingModule,
