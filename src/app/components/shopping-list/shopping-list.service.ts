@@ -16,6 +16,15 @@ export class ShoppingListService {
     private firestore: AngularFirestore
   ) {}
 
+  // TODO might want to return an observable here https://stackblitz.com/edit/angular-fe12nf?file=src%2Fapp%2Fapp.component.ts,src%2Fapp%2FObservables.ts
+  public getShoppingList(id: string): ShoppingList | undefined {
+    let shoppingList = this.shopingLists.find((shoppingList) => {
+      return shoppingList.id === id;
+    });
+
+    return shoppingList;
+  }
+
   public fetchShoppingLists() {
     const userId = this.authService.userId;
     this.firestore

@@ -1,1 +1,6 @@
-<p>shopping-list works!</p>
+<app-content-wrapper [contentLoaded]="contentLoaded">
+  <div pageHeader>
+    <h1>{{ shoppingList.listName }}</h1>
+  </div>
+  <div pageContent></div>
+</app-content-wrapper>
