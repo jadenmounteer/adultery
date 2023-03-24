@@ -8,13 +8,13 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { ExercisesService } from './services/exercises-service';
 import { ExerciseLibraryItemComponent } from './components/exercise-library-item/exercise-library-item.component';
 import { ExerciseTagComponent } from './components/exercise-tag/exercise-tag.component';
@@ -62,6 +62,8 @@ export function playerFactory(): any {
     FormsModule,
     UISharedModule,
     AuthModule,
+    BrowserModule,
+    BrowserAnimationsModule,
   ],
   providers: [QuotesService, ExercisesService],
   bootstrap: [AppComponent],

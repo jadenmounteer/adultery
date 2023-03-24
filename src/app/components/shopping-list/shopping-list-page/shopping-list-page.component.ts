@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
 import { ConfirmModalComponent } from '../../confirm-modal/confirm-modal.component';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-shopping-list-page',
@@ -18,7 +19,8 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private shoppingListService: ShoppingListService // public activeModal: NgbActiveModal
+    private shoppingListService: ShoppingListService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -33,6 +35,7 @@ export class ShoppingListPageComponent implements OnInit {
   }
 
   protected onAddShoppingList() {
+    console.log(this.authService.userId);
     const modalRef = this.modalService.open(AddShoppingListModalComponent);
   }
 
