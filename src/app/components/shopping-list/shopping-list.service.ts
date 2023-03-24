@@ -54,8 +54,8 @@ export class ShoppingListService {
   //     });
   //   }
 
-  //   public deleteShoppingList(exerciseToDelete: Exercise) {
-  //     const exercisesRef = this.firestore.collection('exercises');
-  //     exercisesRef.doc(exerciseToDelete.id).delete();
-  //   }
+  public deleteShoppingList(shoppingListToDelete: ShoppingList) {
+    const shoppingListsRef = this.firestore.collection('shoppingLists');
+    shoppingListsRef.doc(shoppingListToDelete.id).delete();
+  }
 }

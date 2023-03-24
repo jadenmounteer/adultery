@@ -16,8 +16,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
-import { NgbModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-import { AuthService } from './components/auth/auth.service';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -72,8 +70,6 @@ export function playerFactory(): any {
     AngularFirestoreModule,
     AngularFireAuthModule,
     LottieModule.forRoot({ player: playerFactory }),
-    NgbModule,
-    NgbDropdownModule,
     FormsModule,
     UISharedModule,
     AuthModule,

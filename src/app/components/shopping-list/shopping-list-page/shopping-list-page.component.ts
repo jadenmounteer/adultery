@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddShoppingListModalComponent } from '../add-shopping-list-modal/add-shopping-list-modal.component';
 import { Subscription } from 'rxjs';
 import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
+import { ConfirmModalComponent } from '../../confirm-modal/confirm-modal.component';
 
 @Component({
   selector: 'app-shopping-list-page',
@@ -17,7 +18,8 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
+    public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
@@ -33,5 +35,16 @@ export class ShoppingListPageComponent implements OnInit {
 
   protected onAddShoppingList() {
     const modalRef = this.modalService.open(AddShoppingListModalComponent);
+  }
+
+  protected onDeleteShoppingList(shoppingListToDelete: ShoppingList) {
+    const modalRef = this.modalService.open(ConfirmModalComponent);
+    modalRef.componentInstance.message = `Are you sure you want to delete the ${shoppingListToDelete.listName} shopping list?`;
+    modalRef.result.then((result) => {
+      if (result === 'Yes') {
+        this.shoppingListService.deleteShoppingList(shoppingListToDelete);
+        this.activeModal.close('Close click');
+      }
+    });
   }
 }
