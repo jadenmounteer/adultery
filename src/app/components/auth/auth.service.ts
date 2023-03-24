@@ -10,7 +10,9 @@ import {
 } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class AuthService {
   public authChange = new Subject<boolean>();
   private isAuthenticated: boolean = false;
@@ -33,10 +35,6 @@ export class AuthService {
         }
       })
     );
-  }
-
-  public helloAuthService() {
-    console.log('Hello world');
   }
 
   // The oath was inspired by https://fireship.io/lessons/angularfire-google-oauth/

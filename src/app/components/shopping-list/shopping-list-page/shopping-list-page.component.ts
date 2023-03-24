@@ -19,8 +19,7 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private shoppingListService: ShoppingListService,
-    private authService: AuthService
+    private shoppingListService: ShoppingListService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +34,6 @@ export class ShoppingListPageComponent implements OnInit {
   }
 
   protected onAddShoppingList() {
-    console.log(this.authService.userId);
     const modalRef = this.modalService.open(AddShoppingListModalComponent);
   }
 

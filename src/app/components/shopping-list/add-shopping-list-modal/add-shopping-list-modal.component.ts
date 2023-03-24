@@ -20,8 +20,6 @@ export class AddShoppingListModalComponent implements OnInit {
   ngOnInit(): void {}
 
   public onSubmit(form: NgForm) {
-    console.log(this.authService.userId);
-    console.log(form);
     const newShoppingList: ShoppingList = {
       id: '',
       userId: this.authService.userId,
