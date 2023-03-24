@@ -11,7 +11,6 @@ import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContentWrapperComponent,
     LoadingSpinnerComponent,
     NgbModule,
-
     NgbDropdownModule,
   ],
 })

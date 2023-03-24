@@ -8,19 +8,52 @@
     (click)="activeModal.dismiss('Cross click')"
   ></button>
 </div>
+
+<div class="modal-body">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="check-availablility-form">
+    <div class="form-group">
+      <label>*Item Name</label>
+      <input
+        class="form-control"
+        type="text"
+        required
+        name="itemName"
+        ngModel
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Quantity Needed</label>
+      <input
+        class="form-control"
+        type="number"
+        min="0"
+        name="quantityNeeded"
+        ngModel
+      />
+    </div>
+
+    <div class="form-group">
+      <div ngbDropdown>
+        <button type="button" class="btn btn-outline-primary" ngbDropdownToggle>
+          Category
+        </button>
+
+        <div class="dropdown-menu" ngbDropdownMenu>
+          <button ngbDropdownItem>One</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
 <div class="modal-footer">
   <button
     type="button"
     class="btn btn-primary"
     (click)="activeModal.close('Yes')"
   >
-    Yes
-  </button>
-  <button
-    type="button"
-    class="btn btn-secondary"
-    (click)="activeModal.close('No')"
-  >
-    No
+    Add item
   </button>
 </div>
