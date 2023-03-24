@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ShoppingListItemModalComponent } from '../shopping-list-item-modal/shopping-list-item-modal.component';
 import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-shopping-list',
@@ -14,7 +16,8 @@ export class ShoppingListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -26,6 +29,15 @@ export class ShoppingListComponent implements OnInit {
       if (shoppingList) {
         this.shoppingList = shoppingList;
         this.contentLoaded = true;
+      }
+    });
+  }
+
+  protected addShoppingListItem() {
+    const modalRef = this.modalService.open(ShoppingListItemModalComponent);
+    modalRef.componentInstance.message = `Add new item to ${this.shoppingList.listName}`;
+    modalRef.result.then((result) => {
+      if (result === 'Yes') {
       }
     });
   }
