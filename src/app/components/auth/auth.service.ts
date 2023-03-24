@@ -35,6 +35,10 @@ export class AuthService {
     );
   }
 
+  public helloAuthService() {
+    console.log('Hello world');
+  }
+
   // The oath was inspired by https://fireship.io/lessons/angularfire-google-oauth/
   // Note that if you change domains, for the login with google to work you have to add the domain to the list of authorized domains in firebase console.
   async googleSignin() {

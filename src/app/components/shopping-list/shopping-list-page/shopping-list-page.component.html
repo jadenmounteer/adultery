@@ -14,7 +14,12 @@
         <tr *ngFor="let shoppingList of shoppingLists">
           <td scope="row">{{ shoppingList.listName }}</td>
           <td scope="row">
-            <button class="btn btn-danger">Delete</button>
+            <button
+              class="btn btn-danger"
+              (click)="onDeleteShoppingList(shoppingList)"
+            >
+              Delete
+            </button>
           </td>
         </tr>
       </tbody>

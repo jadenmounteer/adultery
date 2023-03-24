@@ -18,8 +18,7 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private shoppingListService: ShoppingListService,
-    public activeModal: NgbActiveModal
+    private shoppingListService: ShoppingListService // public activeModal: NgbActiveModal
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +42,7 @@ export class ShoppingListPageComponent implements OnInit {
     modalRef.result.then((result) => {
       if (result === 'Yes') {
         this.shoppingListService.deleteShoppingList(shoppingListToDelete);
-        this.activeModal.close('Close click');
+        // this.activeModal.close('Close click');
       }
     });
   }

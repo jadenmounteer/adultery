@@ -55,7 +55,7 @@ export class ShoppingListService {
   //   }
 
   public deleteShoppingList(shoppingListToDelete: ShoppingList) {
-    const shoppingListsRef = this.firestore.collection('shoppingLists');
+    const shoppingListsRef = this.firestore.collection('shopping-lists');
     shoppingListsRef.doc(shoppingListToDelete.id).delete();
   }
 }

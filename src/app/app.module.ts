@@ -10,15 +10,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { environment } from '../environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
 import { LottieModule } from 'ngx-lottie';
 import { FormsModule } from '@angular/forms';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 import { ExercisesService } from './services/exercises-service';
 import { ExerciseLibraryItemComponent } from './components/exercise-library-item/exercise-library-item.component';
 import { ExerciseTagComponent } from './components/exercise-tag/exercise-tag.component';
@@ -32,7 +30,6 @@ import { AddFitnessLogModalComponent } from './components/add-fitness-log-modal/
 import { FeatureComingSoonComponent } from './components/feature-coming-soon/feature-coming-soon.component';
 import { UISharedModule } from './components/ui-shared-module/ui-shared-module.module';
 import { AuthModule } from './components/auth/auth.module';
-
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
   return import('lottie-web');
@@ -46,7 +43,6 @@ export function playerFactory(): any {
     QuotesComponent,
     HomePageComponent,
     AnimationComponent,
-
     ExerciseLibraryComponent,
     ExerciseLibraryItemComponent,
     ExerciseTagComponent,
@@ -66,9 +62,7 @@ export function playerFactory(): any {
     FontAwesomeModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
+
     LottieModule.forRoot({ player: playerFactory }),
     FormsModule,
     UISharedModule,
