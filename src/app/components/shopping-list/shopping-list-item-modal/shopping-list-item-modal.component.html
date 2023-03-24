@@ -18,7 +18,7 @@
         type="text"
         required
         name="itemName"
-        ngModel
+        (ngModel)="(shoppingListItem.itemName)"
         required
       />
     </div>
@@ -30,7 +30,7 @@
         type="number"
         min="0"
         name="quantityNeeded"
-        ngModel
+        (ngModel)="(shoppingListItem.quantityNeeded)"
       />
     </div>
 
