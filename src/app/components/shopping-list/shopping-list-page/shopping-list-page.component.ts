@@ -51,6 +51,8 @@ export class ShoppingListPageComponent implements OnInit {
   }
 
   protected openShoppingList(shoppingList: ShoppingList) {
-    this.router.navigate(['shopping-list-page/shopping-list']);
+    this.router.navigate([
+      `shopping-list-page/shopping-list/${shoppingList.id}`,
+    ]);
   }
 }
