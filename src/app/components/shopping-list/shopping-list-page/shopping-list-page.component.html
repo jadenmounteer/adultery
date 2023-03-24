@@ -12,7 +12,11 @@
       </thead>
       <tbody>
         <tr *ngFor="let shoppingList of shoppingLists">
-          <td scope="row">{{ shoppingList.listName }}</td>
+          <td scope="row">
+            <button type="button" class="btn btn-link">
+              {{ shoppingList.listName }}
+            </button>
+          </td>
           <td scope="row">
             <button
               class="btn btn-danger"
