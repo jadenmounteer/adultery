@@ -3,9 +3,23 @@
     <h1>Shopping Lists</h1>
   </div>
   <div pageContent>
-    <ul *ngFor="let shoppingList of shoppingLists">
-      <li>{{ shoppingList.listName }}</li>
-    </ul>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">List Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let shoppingList of shoppingLists">
+          <td scope="row">{{ shoppingList.listName }}</td>
+          <td scope="row">
+            <button class="btn btn-danger">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
     <button class="btn btn-primary" (click)="onAddShoppingList()">
       Add List +
     </button>
