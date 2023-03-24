@@ -6,15 +6,21 @@ import { UISharedModule } from '../ui-shared-module/ui-shared-module.module';
 import { AuthModule } from '../auth/auth.module';
 import { AddShoppingListModalComponent } from './add-shopping-list-modal/add-shopping-list-modal.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [ShoppingListPageComponent, AddShoppingListModalComponent],
   imports: [
     CommonModule,
     ShoppingListRoutingModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    FormsModule,
     UISharedModule,
     AuthModule,
-    FormsModule,
   ],
 })
 export class ShoppingListModule {}

@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +8,6 @@ import { QuotesComponent } from './components/quotes/quotes.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuotesService } from './services/quotes.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { AnimationComponent } from './components/animation/animation.component';
@@ -57,12 +55,9 @@ export function playerFactory(): any {
     FeatureComingSoonComponent,
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-
     LottieModule.forRoot({ player: playerFactory }),
     FormsModule,
     UISharedModule,
