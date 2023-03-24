@@ -6,6 +6,7 @@ import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
 import { ConfirmModalComponent } from '../../confirm-modal/confirm-modal.component';
 import { AuthService } from '../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list-page',
@@ -19,7 +20,8 @@ export class ShoppingListPageComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private shoppingListService: ShoppingListService
+    private shoppingListService: ShoppingListService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -46,5 +48,9 @@ export class ShoppingListPageComponent implements OnInit {
         // this.activeModal.close('Close click');
       }
     });
+  }
+
+  protected openShoppingList(shoppingList: ShoppingList) {
+    this.router.navigate(['shopping-list-page/shopping-list']);
   }
 }

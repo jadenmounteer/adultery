@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShoppingListPageComponent } from './shopping-list-page/shopping-list-page.component';
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
-const routes: Routes = [{ path: '', component: ShoppingListPageComponent }];
+const routes: Routes = [
+  { path: '', component: ShoppingListPageComponent },
+  {
+    path: 'shopping-list',
+    component: ShoppingListComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

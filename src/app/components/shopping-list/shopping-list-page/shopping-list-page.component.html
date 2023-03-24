@@ -13,7 +13,11 @@
       <tbody>
         <tr *ngFor="let shoppingList of shoppingLists">
           <td scope="row">
-            <button type="button" class="btn btn-link">
+            <button
+              type="button"
+              class="btn btn-link"
+              (click)="openShoppingList(shoppingList)"
+            >
               {{ shoppingList.listName }}
             </button>
           </td>
