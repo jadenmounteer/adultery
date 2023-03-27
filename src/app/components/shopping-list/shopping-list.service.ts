@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Subject } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { ShoppingList } from './shopping-list-types/shopping-list';
 import { AuthService } from '../auth/auth.service';
+import { ShoppingListItem } from './shopping-list-types/shopping-list-item';
 
 @Injectable({ providedIn: 'root' })
 export class ShoppingListService {
@@ -83,15 +84,39 @@ export class ShoppingListService {
   }
 
   public updateShoppingList(shoppingListToUpdate: ShoppingList) {
+    console.log(shoppingListToUpdate);
     const shoppingListRef = this.firestore.collection('shopping-lists');
-    // shoppingListRef.doc(shoppingListToUpdate.id).update({
-    //   name: shoppingListToUpdate.name,
-    //   description: shoppingListToUpdate.description,
-    // });
+    shoppingListRef.doc(shoppingListToUpdate.id).update({
+      listName: shoppingListToUpdate.listName,
+      items: shoppingListToUpdate.items,
+      complete: shoppingListToUpdate.complete,
+    });
+  }
+
+  public addItemToShoppingList(itemToAdd: ShoppingListItem) {
+    let shoppingListToUpdate: ShoppingList | undefined = this.shopingLists.find(
+      (shoppingList) => {
+        return shoppingList.id === itemToAdd.shoppingListId;
+      }
+    );
+
+    if (shoppingListToUpdate) {
+      if (shoppingListToUpdate.items) {
+        shoppingListToUpdate?.items.push(itemToAdd);
+      } else {
+        shoppingListToUpdate.items = [];
+        shoppingListToUpdate.items.push(itemToAdd);
+      }
+
+      this.updateShoppingList(shoppingListToUpdate);
+    } else {
+      throw new Error('Could not find shopping list to update');
+    }
   }
 
   private addPayloadIdToShoppingList(payloadId: string): void {
     const shoppingListRef = this.firestore.collection('shopping-lists');
+
     shoppingListRef.doc(payloadId).update({
       id: payloadId,
     });

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
+import { ShoppingListService } from '../shopping-list.service';
 
 @Component({
   selector: 'app-shopping-list-item-modal',
@@ -15,17 +16,18 @@ export class ShoppingListItemModalComponent implements OnInit {
 
   // TODO initialize the item, if there is one, or start with a blank item
   protected shoppingListItem: ShoppingListItem = {
-    id: '',
-    userId: undefined,
     shoppingListId: '',
     itemName: '',
-    estimatedPrice: undefined,
+    estimatedPrice: 2,
     quantityNeeded: undefined,
     department: '',
     purchased: false,
   };
 
-  constructor(public activeModal: NgbActiveModal) {}
+  constructor(
+    public activeModal: NgbActiveModal,
+    private shoppingListService: ShoppingListService
+  ) {}
 
   ngOnInit(): void {
     if (this.shoppingListItemToEdit) {
@@ -35,8 +37,7 @@ export class ShoppingListItemModalComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submitting');
-    console.log(this.shoppingListItem);
+    this.shoppingListService.addItemToShoppingList(this.shoppingListItem);
     this.activeModal.close('Close click');
   }
 }
