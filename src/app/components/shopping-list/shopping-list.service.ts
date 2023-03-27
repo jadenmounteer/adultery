@@ -25,6 +25,31 @@ export class ShoppingListService {
     return shoppingList;
   }
 
+  public fetchShoppingList(id: string) {
+    console.log(`Attempting to fetch shopping list: ${id}`);
+    this.firestore
+      .collection('shopping-lists', (ref) => ref.where('id', '==', id))
+      .snapshotChanges()
+      .pipe(
+        map((docArray: any[]) => {
+          // Here we map the data coming from the db to be the Quote type.
+          return docArray.map((doc) => {
+            return {
+              id: doc.payload.doc.id,
+              userId: doc.payload.doc.data().userId,
+              listName: doc.payload.doc.data().listName,
+              items: doc.payload.doc.data().items,
+              complete: doc.payload.doc.data().complete,
+            };
+          });
+        })
+      )
+      .subscribe((shopingLists: ShoppingList[]) => {
+        this.shopingLists = shopingLists;
+        this.shoppingListsChanged.next([...this.shopingLists]);
+      });
+  }
+
   public fetchShoppingLists() {
     const userId = this.authService.userId;
     this.firestore

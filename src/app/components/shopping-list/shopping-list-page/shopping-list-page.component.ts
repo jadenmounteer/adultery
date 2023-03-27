@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AddShoppingListModalComponent } from '../add-shopping-list-modal/add-shopping-list-modal.component';
 import { Subscription } from 'rxjs';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   templateUrl: './shopping-list-page.component.html',
   styleUrls: ['./shopping-list-page.component.scss'],
 })
-export class ShoppingListPageComponent implements OnInit {
+export class ShoppingListPageComponent implements OnInit, OnDestroy {
   public contentLoaded: boolean = false;
   private shoppingListsSubscription!: Subscription;
   public shoppingLists: Array<ShoppingList> = [];
@@ -23,6 +23,9 @@ export class ShoppingListPageComponent implements OnInit {
     private shoppingListService: ShoppingListService,
     private router: Router
   ) {}
+  ngOnDestroy(): void {
+    this.shoppingListsSubscription.unsubscribe();
+  }
 
   ngOnInit(): void {
     this.shoppingListsSubscription =

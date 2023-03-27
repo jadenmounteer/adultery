@@ -4,6 +4,7 @@ import { ShoppingListItemModalComponent } from '../shopping-list-item-modal/shop
 import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shopping-list',
@@ -13,6 +14,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class ShoppingListComponent implements OnInit {
   protected shoppingList!: ShoppingList;
   protected contentLoaded: boolean = false;
+  private shoppingListsSubscription!: Subscription;
+  public shoppingLists: Array<ShoppingList> = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +32,18 @@ export class ShoppingListComponent implements OnInit {
       if (shoppingList) {
         this.shoppingList = shoppingList;
         this.contentLoaded = true;
+      } else {
+        // We need to fetch it from the database.
+        // TODO before we can do this, we need to make sure the owner marks it as shareable. When they do that, I need to update the id of the
+        // shopping list in the db.
+        this.shoppingListsSubscription =
+          this.shoppingListService.shoppingListsChanged.subscribe(
+            (shoppingLists) => {
+              this.shoppingLists = shoppingLists;
+              this.contentLoaded = true;
+            }
+          );
+        this.shoppingListService.fetchShoppingList(id);
       }
     });
   }
@@ -40,5 +55,9 @@ export class ShoppingListComponent implements OnInit {
       if (result === 'Yes') {
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.shoppingListsSubscription.unsubscribe();
   }
 }
