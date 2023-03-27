@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">{{ message }}</h4>
-
+  {{ shoppingListItem.shoppingListId }}
   <button
     type="button"
     class="btn-close"
@@ -10,7 +10,7 @@
 </div>
 
 <div class="modal-body">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="check-availablility-form">
+  <form #f="ngForm" (ngSubmit)="onSubmit()" class="check-availablility-form">
     <div class="form-group">
       <label>*Item Name</label>
       <input

@@ -50,6 +50,7 @@ export class ShoppingListComponent implements OnInit {
 
   protected addShoppingListItem() {
     const modalRef = this.modalService.open(ShoppingListItemModalComponent);
+    modalRef.componentInstance.shoppingListId = this.shoppingList.id;
     modalRef.componentInstance.message = `Add new item to ${this.shoppingList.listName}`;
     modalRef.result.then((result) => {
       if (result === 'Yes') {

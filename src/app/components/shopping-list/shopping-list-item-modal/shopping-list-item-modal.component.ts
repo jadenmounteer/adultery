@@ -11,11 +11,13 @@ import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
 export class ShoppingListItemModalComponent implements OnInit {
   @Input() message!: string;
   @Input() shoppingListItemToEdit!: ShoppingListItem;
+  @Input() shoppingListId!: string;
 
   // TODO initialize the item, if there is one, or start with a blank item
   protected shoppingListItem: ShoppingListItem = {
     id: '',
     userId: undefined,
+    shoppingListId: this.shoppingListId,
     itemName: '',
     estimatedPrice: undefined,
     quantityNeeded: undefined,
@@ -26,10 +28,11 @@ export class ShoppingListItemModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
+    console.log(this.shoppingListId);
     if (this.shoppingListItemToEdit) {
       this.shoppingListItem = this.shoppingListItemToEdit;
     }
   }
 
-  onSubmit(form: NgForm) {}
+  onSubmit() {}
 }

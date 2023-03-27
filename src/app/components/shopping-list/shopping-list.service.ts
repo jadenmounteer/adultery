@@ -59,6 +59,9 @@ export class ShoppingListService {
         map((docArray: any[]) => {
           // Here we map the data coming from the db to be the Quote type.
           return docArray.map((doc) => {
+            if (!doc.payload.doc.data().id) {
+              this.addPayloadIdToShoppingList(doc.payload.doc.id);
+            }
             return {
               id: doc.payload.doc.id,
               userId: doc.payload.doc.data().userId,
@@ -80,13 +83,20 @@ export class ShoppingListService {
     shoppingListRef.add({ ...newShoppingList });
   }
 
-  //   public updateShoppingList(exerciseToUpdate: Exercise) {
-  //     const exercisesRef = this.firestore.collection('exercises');
-  //     exercisesRef.doc(exerciseToUpdate.id).update({
-  //       name: exerciseToUpdate.name,
-  //       description: exerciseToUpdate.description,
-  //     });
-  //   }
+  public updateShoppingList(shoppingListToUpdate: ShoppingList) {
+    const shoppingListRef = this.firestore.collection('shopping-lists');
+    // shoppingListRef.doc(shoppingListToUpdate.id).update({
+    //   name: shoppingListToUpdate.name,
+    //   description: shoppingListToUpdate.description,
+    // });
+  }
+
+  private addPayloadIdToShoppingList(payloadId: string): void {
+    const shoppingListRef = this.firestore.collection('shopping-lists');
+    shoppingListRef.doc(payloadId).update({
+      id: payloadId,
+    });
+  }
 
   public deleteShoppingList(shoppingListToDelete: ShoppingList) {
     const shoppingListsRef = this.firestore.collection('shopping-lists');
