@@ -1,6 +1,11 @@
 <app-content-wrapper [contentLoaded]="contentLoaded">
   <div pageHeader>
     <h1>{{ shoppingList.listName }}</h1>
+    <ul>
+      <li *ngFor="let item of shoppingList.items">
+        {{ item.itemName }}
+      </li>
+    </ul>
   </div>
   <div pageContent>
     <button class="btn btn-primary" (click)="addShoppingListItem()">
