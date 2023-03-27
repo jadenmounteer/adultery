@@ -1,6 +1,5 @@
 <div class="modal-header">
   <h4 class="modal-title">{{ message }}</h4>
-  {{ shoppingListItem.shoppingListId }}
   <button
     type="button"
     class="btn-close"
@@ -66,9 +65,10 @@
 
 <div class="modal-footer">
   <button
-    type="button"
+    type="submit"
     class="btn btn-primary"
-    (click)="activeModal.close('Yes')"
+    [disabled]="!f.valid"
+    (click)="onSubmit()"
   >
     Add item
   </button>

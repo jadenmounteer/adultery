@@ -17,7 +17,7 @@ export class ShoppingListItemModalComponent implements OnInit {
   protected shoppingListItem: ShoppingListItem = {
     id: '',
     userId: undefined,
-    shoppingListId: this.shoppingListId,
+    shoppingListId: '',
     itemName: '',
     estimatedPrice: undefined,
     quantityNeeded: undefined,
@@ -28,11 +28,15 @@ export class ShoppingListItemModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit(): void {
-    console.log(this.shoppingListId);
     if (this.shoppingListItemToEdit) {
       this.shoppingListItem = this.shoppingListItemToEdit;
     }
+    this.shoppingListItem.shoppingListId = this.shoppingListId;
   }
 
-  onSubmit() {}
+  onSubmit() {
+    console.log('Submitting');
+    console.log(this.shoppingListItem);
+    this.activeModal.close('Close click');
+  }
 }
