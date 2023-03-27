@@ -26,7 +26,6 @@ export class ShoppingListService {
   }
 
   public fetchShoppingList(id: string) {
-    console.log(`Attempting to fetch shopping list: ${id}`);
     this.firestore
       .collection('shopping-lists', (ref) => ref.where('id', '==', id))
       .snapshotChanges()
