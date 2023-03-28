@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShoppingListItemModalComponent } from '../shopping-list-item-modal/shopping-list-item-modal.component';
 import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListService } from '../shopping-list.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
+import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
 
 @Component({
   selector: 'app-shopping-list',
   templateUrl: './shopping-list.component.html',
   styleUrls: ['./shopping-list.component.scss'],
 })
-export class ShoppingListComponent implements OnInit {
+export class ShoppingListComponent implements OnInit, OnDestroy {
   protected shoppingList!: ShoppingList;
   protected contentLoaded: boolean = false;
   private shoppingListsSubscription!: Subscription;
@@ -56,6 +57,25 @@ export class ShoppingListComponent implements OnInit {
       if (result === 'Yes') {
       }
     });
+  }
+
+  protected toggleCheckbox(shoppingListItem: ShoppingListItem) {
+    shoppingListItem.purchased = !shoppingListItem.purchased;
+    this.changeShoppingListItem(shoppingListItem);
+  }
+
+  private changeShoppingListItem(shoppingListItem: ShoppingListItem) {
+    const shoppingListToEdit: ShoppingList | undefined =
+      this.shoppingListService.getShoppingList(shoppingListItem.shoppingListId);
+
+    if (shoppingListToEdit) {
+      this.shoppingListService.updateShoppingList(shoppingListToEdit);
+      return;
+    }
+
+    throw new Error(
+      'Could not find a shopping list for this shopping list item.'
+    );
   }
 
   ngOnDestroy(): void {
