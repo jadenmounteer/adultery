@@ -5,11 +5,13 @@
       <li *ngFor="let item of shoppingList.items" class="shopping-list-item">
         <span
           class="item-checkbox"
-          [ngClass]="{ 'selected-checkbox': true }"
+          [ngClass]="{ 'selected-checkbox': item.purchased }"
           (click)="toggleCheckbox(item)"
           ><span class="checkbox-x" *ngIf="item.purchased">X</span></span
         >
-        {{ item.itemName }}
+        <span [ngClass]="{ 'purchased-item-name': item.purchased }">
+          {{ item.itemName }}
+        </span>
       </li>
     </ul>
   </div>
