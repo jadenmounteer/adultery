@@ -80,17 +80,14 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     );
   }
 
-  // TODO delete the item based off of index
   protected deleteItemFromShoppingList(
     shoppingListItem: ShoppingListItem,
-    index: number
+    index: number,
+    shoppingList: ShoppingList
   ) {
-    let shoppingListToEdit: ShoppingList | undefined =
-      this.shoppingListService.getShoppingList(shoppingListItem.shoppingListId);
-
-    if (shoppingListToEdit && shoppingListToEdit.items) {
-      shoppingListToEdit.items = shoppingListToEdit.items.filter((item) => {
-        return shoppingListToEdit?.items?.indexOf(item) !== index;
+    if (shoppingList.items) {
+      shoppingList.items = shoppingList.items.filter((item) => {
+        return shoppingList?.items?.indexOf(item) !== index;
       });
 
       this.changeShoppingListItem(shoppingListItem);
