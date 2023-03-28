@@ -1,19 +1,48 @@
 <app-content-wrapper [contentLoaded]="contentLoaded">
   <div pageHeader>
     <h1>{{ shoppingList.listName }}</h1>
-    <ul class="list-of-items">
-      <li *ngFor="let item of shoppingList.items" class="shopping-list-item">
-        <span
-          class="item-checkbox"
-          [ngClass]="{ 'selected-checkbox': item.purchased }"
-          (click)="toggleCheckbox(item)"
-          ><span class="checkbox-x" *ngIf="item.purchased">X</span></span
-        >
-        <span [ngClass]="{ 'purchased-item-name': item.purchased }">
-          {{ item.itemName }}
-        </span>
-      </li>
-    </ul>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">List Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of shoppingList.items">
+          <td scope="row">
+            <span
+              class="item-checkbox"
+              [ngClass]="{ 'selected-checkbox': item.purchased }"
+              (click)="toggleCheckbox(item)"
+              ><span class="checkbox-x" *ngIf="item.purchased">X</span></span
+            >
+          </td>
+
+          <td scope="row">
+            <span [ngClass]="{ 'purchased-item-name': item.purchased }">
+              {{ item.itemName }}
+            </span>
+          </td>
+
+          <td scope="row">
+            <span [ngClass]="{ 'purchased-item-name': item.purchased }">
+              {{ item.quantityNeeded }}
+            </span>
+          </td>
+
+          <td scope="row">
+            <span>
+              {{ item.purchased }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div pageContent>
     <button class="btn btn-primary" (click)="addShoppingListItem()">

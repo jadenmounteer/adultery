@@ -1,14 +1,3 @@
-li {
-  list-style-type: none;
-}
-
-.list-of-items {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-left: 0; // This overrides another style
-}
-
 .item-checkbox {
   width: 42px;
   height: 42px;
@@ -16,21 +5,10 @@ li {
   border-width: 1px;
   padding: 20px;
   cursor: pointer;
-}
-
-.selected-checkbox {
   font-size: 2em;
   display: flex;
   align-items: center;
   justify-content: center;
-  //   font-family: 'Roboto', sans-serif;
-}
-
-.shopping-list-item {
-  display: flex;
-  flex-direction: row;
-  gap: 4px;
-  align-items: center;
 }
 
 .purchased-item-name {
