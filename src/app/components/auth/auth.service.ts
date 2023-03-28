@@ -108,7 +108,6 @@ export class AuthService {
   private onSuccessfulAuthentication() {
     this.isAuthenticated = true;
     this.authChange.next(true);
-    this.router.navigate(['']);
   }
 
   private onUnsuccessfulAuthentication() {
