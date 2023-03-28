@@ -84,13 +84,14 @@ export class ShoppingListService {
   }
 
   public updateShoppingList(shoppingListToUpdate: ShoppingList) {
-    console.log(shoppingListToUpdate);
     const shoppingListRef = this.firestore.collection('shopping-lists');
     shoppingListRef.doc(shoppingListToUpdate.id).update({
       listName: shoppingListToUpdate.listName,
       items: shoppingListToUpdate.items,
       complete: shoppingListToUpdate.complete,
     });
+
+    this.shoppingListsChanged.next([...this.shopingLists]);
   }
 
   public addItemToShoppingList(itemToAdd: ShoppingListItem) {
