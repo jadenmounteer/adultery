@@ -1,8 +1,11 @@
 <app-content-wrapper [contentLoaded]="contentLoaded">
   <div pageHeader>
     <h1>{{ shoppingList.listName }}</h1>
-    <ul>
-      <li *ngFor="let item of shoppingList.items">
+    <ul class="list-of-items">
+      <li *ngFor="let item of shoppingList.items" class="shopping-list-item">
+        <span class="item-checkbox" [ngClass]="{ 'selected-checkbox': true }"
+          ><span class="checkbox-x">X</span></span
+        >
         {{ item.itemName }}
       </li>
     </ul>
