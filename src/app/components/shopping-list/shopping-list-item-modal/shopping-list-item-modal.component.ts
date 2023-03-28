@@ -19,7 +19,7 @@ export class ShoppingListItemModalComponent implements OnInit {
     shoppingListId: '',
     itemName: '',
     estimatedPrice: 2,
-    quantityNeeded: undefined,
+    quantityNeeded: 1,
     department: '',
     purchased: false,
   };
