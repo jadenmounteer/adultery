@@ -6,6 +6,7 @@ import { ShoppingListService } from '../shopping-list.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
+import { IconService } from 'src/app/services/icon.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -21,7 +22,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private shoppingListService: ShoppingListService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public icon: IconService
   ) {}
 
   ngOnInit(): void {
@@ -76,6 +78,24 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     throw new Error(
       'Could not find a shopping list for this shopping list item.'
     );
+  }
+
+  // TODO delete the item based off of index
+  protected deleteItemFromShoppingList(
+    shoppingListItem: ShoppingListItem,
+    index: number
+  ) {
+    let shoppingListToEdit: ShoppingList | undefined =
+      this.shoppingListService.getShoppingList(shoppingListItem.shoppingListId);
+
+    if (shoppingListToEdit && shoppingListToEdit.items) {
+      shoppingListToEdit.items = shoppingListToEdit.items.filter((item) => {
+        return shoppingListToEdit?.items?.indexOf(item) !== index;
+      });
+
+      this.changeShoppingListItem(shoppingListItem);
+      return;
+    }
   }
 
   ngOnDestroy(): void {

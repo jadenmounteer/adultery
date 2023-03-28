@@ -6,21 +6,21 @@
       <thead>
         <tr>
           <th scope="col"></th>
-          <th scope="col">List Name</th>
-          <th scope="col">Quantity</th>
+          <th scope="col">Item</th>
+          <th scope="col">Qty.</th>
           <th scope="col"></th>
         </tr>
       </thead>
 
       <tbody>
-        <tr *ngFor="let item of shoppingList.items">
+        <tr *ngFor="let item of shoppingList.items; index as i">
           <td scope="row">
             <span
               class="item-checkbox"
               [ngClass]="{ 'selected-checkbox': item.purchased }"
               (click)="toggleCheckbox(item)"
-              ><span class="checkbox-x" *ngIf="item.purchased">X</span></span
-            >
+              ><span *ngIf="item.purchased">X</span>
+            </span>
           </td>
 
           <td scope="row">
@@ -30,15 +30,17 @@
           </td>
 
           <td scope="row">
-            <span [ngClass]="{ 'purchased-item-name': item.purchased }">
+            <span>
               {{ item.quantityNeeded }}
             </span>
           </td>
 
           <td scope="row">
-            <span>
-              {{ item.purchased }}
-            </span>
+            <fa-icon
+              class="delete-button"
+              (click)="deleteItemFromShoppingList(item, i)"
+              [icon]="icon.faTrashAlt"
+            ></fa-icon>
           </td>
         </tr>
       </tbody>
