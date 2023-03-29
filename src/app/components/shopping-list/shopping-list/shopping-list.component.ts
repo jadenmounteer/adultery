@@ -32,22 +32,36 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
 
       const shoppingList: ShoppingList | undefined =
         this.shoppingListService.getShoppingList(id);
+
       if (shoppingList) {
         this.shoppingList = shoppingList;
         this.contentLoaded = true;
       } else {
-        // We need to fetch it from the database.
-        // TODO before we can do this, we need to make sure the owner marks it as shareable. When they do that, I need to update the id of the
-        // shopping list in the db.
-        this.shoppingListsSubscription =
-          this.shoppingListService.shoppingListsChanged.subscribe(
-            (shoppingLists) => {
-              this.shoppingLists = shoppingLists;
-              this.contentLoaded = true;
-            }
-          );
         this.shoppingListService.fetchShoppingList(id);
+        this.contentLoaded = true;
       }
+
+      // We need to fetch it from the database.
+      // TODO before we can do this, we need to make sure the owner marks it as shareable. When they do that, I need to update the id of the
+      // shopping list in the db.
+      this.shoppingListsSubscription =
+        this.shoppingListService.shoppingListsChanged.subscribe(
+          (updatedShoppingLists) => {
+            this.shoppingLists = updatedShoppingLists;
+
+            // Set shoppingList to the updated list
+            let indexOfShoppingListWeAreWorkingWith: number = 0;
+            updatedShoppingLists.forEach((list) => {
+              if (list.id === this.shoppingList.id) {
+                let indexOfShoppingListWeAreWorkingWith =
+                  updatedShoppingLists.indexOf(list);
+              }
+            });
+
+            this.shoppingList =
+              updatedShoppingLists[indexOfShoppingListWeAreWorkingWith];
+          }
+        );
     });
   }
 
