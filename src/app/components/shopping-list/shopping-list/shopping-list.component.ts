@@ -53,7 +53,7 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
             let indexOfShoppingListWeAreWorkingWith: number = 0;
             updatedShoppingLists.forEach((list) => {
               if (list.id === this.shoppingList.id) {
-                let indexOfShoppingListWeAreWorkingWith =
+                indexOfShoppingListWeAreWorkingWith =
                   updatedShoppingLists.indexOf(list);
               }
             });
