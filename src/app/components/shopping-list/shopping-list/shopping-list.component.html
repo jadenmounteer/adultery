@@ -1,6 +1,6 @@
 <app-content-wrapper [contentLoaded]="contentLoaded">
   <div pageHeader>
-    <button class="btn btn-primary back-button">
+    <button class="btn btn-secondary back-button" (click)="onClickBackButton()">
       <fa-icon [icon]="icon.faArrowLeft"></fa-icon>
       <span class="small">Shopping lists</span>
     </button>

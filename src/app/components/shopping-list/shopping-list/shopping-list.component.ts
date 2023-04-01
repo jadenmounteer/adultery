@@ -7,6 +7,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subscription } from 'rxjs';
 import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
 import { IconService } from 'src/app/services/icon.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-list',
@@ -23,7 +24,8 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private shoppingListService: ShoppingListService,
     private modalService: NgbModal,
-    public icon: IconService
+    public icon: IconService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -107,6 +109,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
       this.changeShoppingListItem(shoppingListItem);
       return;
     }
+  }
+
+  protected onClickBackButton() {
+    this.router.navigate([`shopping-list-page/`]);
   }
 
   ngOnDestroy(): void {
