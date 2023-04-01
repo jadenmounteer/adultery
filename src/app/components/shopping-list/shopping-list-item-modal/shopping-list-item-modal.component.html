@@ -70,6 +70,6 @@
     [disabled]="!f.valid"
     (click)="onSubmit()"
   >
-    Add item
+    {{ shoppingListItemToEdit ? 'Save' : 'Add item' }}
   </button>
 </div>

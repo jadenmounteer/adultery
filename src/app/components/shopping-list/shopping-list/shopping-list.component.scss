@@ -15,9 +15,13 @@
   text-decoration: line-through;
 }
 
+.delete-button,
+.edit-button {
+  cursor: pointer;
+}
+
 .delete-button {
   color: red;
-  cursor: pointer;
 }
 
 .back-button {

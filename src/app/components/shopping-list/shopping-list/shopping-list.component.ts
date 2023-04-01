@@ -111,6 +111,17 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     }
   }
 
+  protected editShoppingListItem(shoppingListItemToEdit: ShoppingListItem) {
+    const modalRef = this.modalService.open(ShoppingListItemModalComponent);
+    modalRef.componentInstance.shoppingListId = this.shoppingList.id;
+    modalRef.componentInstance.shoppingListItemToEdit = shoppingListItemToEdit;
+    modalRef.componentInstance.message = `Edit ${shoppingListItemToEdit.itemName}`;
+    modalRef.result.then((result) => {
+      if (result === 'Yes') {
+      }
+    });
+  }
+
   protected onClickBackButton() {
     this.router.navigate([`shopping-list-page/`]);
   }

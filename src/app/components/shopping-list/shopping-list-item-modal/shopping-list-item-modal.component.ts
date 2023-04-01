@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ShoppingList } from '../shopping-list-types/shopping-list';
 import { ShoppingListItem } from '../shopping-list-types/shopping-list-item';
 import { ShoppingListService } from '../shopping-list.service';
 
@@ -37,7 +38,24 @@ export class ShoppingListItemModalComponent implements OnInit {
   }
 
   onSubmit() {
-    this.shoppingListService.addItemToShoppingList(this.shoppingListItem);
+    if (this.shoppingListItemToEdit) {
+      this.editItem();
+    } else {
+      this.addItem();
+    }
+
     this.activeModal.close('Close click');
+  }
+
+  private editItem() {
+    const shoppingListToEdit: ShoppingList | undefined =
+      this.shoppingListService.getShoppingList(this.shoppingListId);
+    if (shoppingListToEdit) {
+      this.shoppingListService.updateShoppingList(shoppingListToEdit);
+    }
+  }
+
+  private addItem() {
+    this.shoppingListService.addItemToShoppingList(this.shoppingListItem);
   }
 }
