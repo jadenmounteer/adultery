@@ -1,5 +1,9 @@
 <app-content-wrapper [contentLoaded]="contentLoaded">
   <div pageHeader>
+    <button class="btn btn-primary back-button">
+      <fa-icon [icon]="icon.faArrowLeft"></fa-icon>
+      <span class="small">Shopping lists</span>
+    </button>
     <h1>{{ shoppingList.listName }}</h1>
 
     <table class="table">

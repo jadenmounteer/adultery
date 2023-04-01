@@ -19,3 +19,11 @@
   color: red;
   cursor: pointer;
 }
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  margin-top: 10px;
+}
