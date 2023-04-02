@@ -29,7 +29,7 @@ import { FeatureComingSoonComponent } from './components/feature-coming-soon/fea
 import { UISharedModule } from './components/ui-shared-module/ui-shared-module.module';
 import { AuthModule } from './components/auth/auth.module';
 import { GroupsPageComponent } from './components/groups-page/groups-page.component';
-import { AddGroupModalComponent } from './components/add-group-modal/add-group-modal.component';
+import { AddOrEditGroupModalComponent } from './components/add-group-modal/add-or-edit-group-modal.component';
 // TODO This is a function necessary for lottie (is there a better place for this?)
 export function playerFactory(): any {
   return import('lottie-web');
@@ -56,7 +56,7 @@ export function playerFactory(): any {
     AddFitnessLogModalComponent,
     FeatureComingSoonComponent,
     GroupsPageComponent,
-    AddGroupModalComponent,
+    AddOrEditGroupModalComponent,
   ],
   imports: [
     AppRoutingModule,

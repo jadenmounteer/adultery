@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddGroupModalComponent } from './add-group-modal.component';
+import { AddGroupModalComponent } from './add-or-edit-group-modal.component';
 
 describe('AddGroupModalComponent', () => {
   let component: AddGroupModalComponent;
@@ -8,9 +8,8 @@ describe('AddGroupModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddGroupModalComponent ]
-    })
-    .compileComponents();
+      declarations: [AddGroupModalComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddGroupModalComponent);
     component = fixture.componentInstance;
