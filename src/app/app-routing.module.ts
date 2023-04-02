@@ -5,6 +5,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { FeatureComingSoonComponent } from './components/feature-coming-soon/feature-coming-soon.component';
 import { ExerciseLibraryComponent } from './components/fitness/exercise-library/exercise-library.component';
+import { GroupsPageComponent } from './components/groups-page/groups-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
@@ -23,6 +24,11 @@ const routes: Routes = [
   {
     path: 'exercise-library',
     component: ExerciseLibraryComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'groups',
+    component: GroupsPageComponent,
     canActivate: [AuthGuard],
   },
   {
