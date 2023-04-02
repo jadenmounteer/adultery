@@ -1,5 +1,7 @@
 <div class="modal-header">
-  <h4 class="modal-title">Create New Group</h4>
+  <h4 class="modal-title">
+    {{ groupToEdit ? 'Edit Group' : 'Create New Group' }}
+  </h4>
 
   <button
     type="button"
@@ -17,15 +19,20 @@
         class="form-control"
         name="groupName"
         id="groupName"
-        ngModel
-        #groupNameInput="ngModel"
+        required=""
+        [(ngModel)]="groupModel.groupName"
       />
     </div>
     <div class="form-group"></div>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="submit" class="btn btn-primary" (click)="onSubmit(f)">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    (click)="onSubmit(f)"
+    [disabled]="!f.valid"
+  >
     Submit
   </button>
 </div>
