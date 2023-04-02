@@ -19,7 +19,9 @@ export class GroupService {
   public async fetchGroups() {
     const userId = this.authService.userId;
     this.firestore
-      .collection('groups', (ref) => ref.where('userIds', 'in', userId))
+      .collection('groups', (ref) =>
+        ref.where('userIds', 'array-contains', userId)
+      )
       .snapshotChanges()
       .pipe(
         map((docArray: any[]) => {

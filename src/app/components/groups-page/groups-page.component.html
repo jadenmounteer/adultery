@@ -11,8 +11,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td scope="row"></td>
+        <tr *ngFor="let group of groups">
+          <td scope="row">{{ group.groupName }}</td>
           <td scope="row"></td>
         </tr>
       </tbody>
