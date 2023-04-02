@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddOrEditGroupModalComponent } from '../add-group-modal/add-or-edit-group-modal.component';
 
 @Component({
   selector: 'app-groups-page',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsPageComponent implements OnInit {
   protected contentLoaded: boolean = true;
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {}
+
+  protected addNewGroup() {
+    const modalRef = this.modalService.open(AddOrEditGroupModalComponent);
+  }
 }
