@@ -111,11 +111,17 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     }
   }
 
-  protected editShoppingListItem(shoppingListItemToEdit: ShoppingListItem) {
+  protected editShoppingListItem(
+    shoppingListItemToEdit: ShoppingListItem,
+    indexOfItemToUpdate: number
+  ) {
     const modalRef = this.modalService.open(ShoppingListItemModalComponent);
     modalRef.componentInstance.shoppingListId = this.shoppingList.id;
     modalRef.componentInstance.shoppingListItemToEdit = shoppingListItemToEdit;
+    modalRef.componentInstance.indexOfItemToUpdate = indexOfItemToUpdate;
+
     modalRef.componentInstance.message = `Edit ${shoppingListItemToEdit.itemName}`;
+
     modalRef.result.then((result) => {
       if (result === 'Yes') {
       }

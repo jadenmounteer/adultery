@@ -14,6 +14,7 @@ export class ShoppingListItemModalComponent implements OnInit {
   @Input() message!: string;
   @Input() shoppingListItemToEdit!: ShoppingListItem;
   @Input() shoppingListId!: string;
+  @Input() indexOfItemToUpdate!: number;
 
   // TODO initialize the item, if there is one, or start with a blank item
   protected shoppingListItem: ShoppingListItem = {
@@ -32,7 +33,7 @@ export class ShoppingListItemModalComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.shoppingListItemToEdit) {
-      this.shoppingListItem = this.shoppingListItemToEdit;
+      this.shoppingListItem = { ...this.shoppingListItemToEdit };
     }
     this.shoppingListItem.shoppingListId = this.shoppingListId;
   }
@@ -50,8 +51,13 @@ export class ShoppingListItemModalComponent implements OnInit {
   private editItem() {
     const shoppingListToEdit: ShoppingList | undefined =
       this.shoppingListService.getShoppingList(this.shoppingListId);
+
     if (shoppingListToEdit) {
-      this.shoppingListService.updateShoppingList(shoppingListToEdit);
+      if (shoppingListToEdit.items) {
+        shoppingListToEdit.items[this.indexOfItemToUpdate] =
+          this.shoppingListItem;
+        this.shoppingListService.updateShoppingList(shoppingListToEdit);
+      }
     }
   }
 
