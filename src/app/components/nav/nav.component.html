@@ -127,6 +127,28 @@
             </div>
           </div>
         </li>
+
+        <li class="nav-item active" *ngIf="isAuth">
+          <div ngbDropdown>
+            <span class="nav-link-container">
+              <fa-icon [icon]="icon.faTools"></fa-icon>
+              <a class="nav-link" style="cursor: pointer" ngbDropdownToggle
+                >Games</a
+              >
+            </span>
+
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button
+                ngbDropdownItem
+                (click)="isMenuCollapsed = true"
+                [routerLink]="'coming-soon'"
+                [routerLinkActive]="['active']"
+              >
+                Adultagotchi
+              </button>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
