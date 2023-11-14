@@ -21,7 +21,10 @@ export class FitnessLogsService {
     const userId = this.authService.userId;
     this.firestore
       .collection('fitnessLogs', (ref) =>
-        ref.where('userId', '==', userId).where('parentId', '==', parentId)
+        ref
+          .where('userId', '==', userId)
+          .where('parentId', '==', parentId)
+          .orderBy('date', 'asc')
       )
       .snapshotChanges()
       .pipe(
